@@ -20,8 +20,33 @@ I try to have a time in the day for each of this phases.
 
 >Quote : Hours per weeks proposed here are the ideal I built by lot of iterating and test about my own learning process, but you will find out what is the best for you.
 
-I would propose to start with this course about learning to learn, have great insight about the learning process without the need to do an introduction to psychology :
+##Phase 0
+
+##Phase 1
+
+>I would propose to start with this course about learning to learn, have great insight about the learning process without the need to do an introduction to psychology :
 
 |Title|Source|Time|
 |---|---|---|
-| Learning to learn | [Link](https://www.coursera.org/learn/learning-how-to-learn) | The first month |
+| Coursera | [Learning to learn](https://www.coursera.org/learn/learning-how-to-learn) | The first month |
+
+##Phase 2
+
+>Python is the best language to start on the side of game/app development
+
+|Title|Source|Time|
+|---|---|---|
+|(French) Apprendre Python|[Link](http://python.developpez.com/cours/apprendre-python3/)| 3 month |
+
+>HTML is the language (with CSS) we will learn for the site of web development, site web like codecademy and freebootcamp are a good introduction and we start directly to practice.
+
+|Codecademy|[Link](https://www.codecademy.com/en/tracks/web)|10 hours]
+|FreeBootCamp|[Link](http://freecodecamp.com/map)|Only the begining track for Html/Css for now, 10 hours|
+
+##Phase 3
+
+>Here I will give you tips only, because it is about creativity and practicing, not following course.
+
+###Phase 4
+
+>Same than 3, it is about participating to the community by reading and sharing experiences.
