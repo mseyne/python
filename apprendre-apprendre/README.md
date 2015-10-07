@@ -14,7 +14,7 @@ les scientifiques ont découvert qu'il existe principalement deux modes de fonct
 Nous pouvons utiliser l'analogie du jeu de flipper, qui sont de très bon moyen d'apprentissage.
 
 
-![Les deux différents modes](apprendre-apprendre/images/focused-diffused.jpg)
+![Les deux différents modes](images/focused-diffused.jpg)
 
 
 Lorsque l'on étudie quelque chose de compliqué, que l'on essaye de comprendre ou d'avoir une idée original, notre esprit à besoin de faire des aller retour entre le mode focused et diffuse, les deux modes d'apprentissage.
