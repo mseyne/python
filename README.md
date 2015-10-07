@@ -17,7 +17,7 @@ I try to have a time in the day for each of this phases.
 * Phase 1 : Computer Science Theory - 10/15 hours per weeks
 * Phase 2 : Programming Courses - 10/15 hours per weeks
 * Phase 3 : Coding personal projects - 15/20 hours per weeks
-* Phase 4 : Writing Documentation and helping - 5/10 hours per weeks
+* Phase 4 : Writing documentation and helping - 5/10 hours per weeks
 
 >Quote : Hours per weeks proposed here are the ideal I built by lot of iterating and test about my own learning process, but you will find out what is the best for you.
 
@@ -39,13 +39,15 @@ I try to have a time in the day for each of this phases.
 
 ###Phase 2
 
->Python is the best language to start on the side of game/app development
+>In my opinion, Python is the best language to start programmation and making little tools/games/app, you don't have to do all of them like I did.
 
 |Title|Source|Time|Git|
 |---|---|---|---|
-|(French) **Apprendre Python**|[Link](http://python.developpez.com/cours/apprendre-python3/)| 3 month | [Apprendre python](apprendre-python)|
+|(French) **Apprendre à programmer avec Python**|[Link](http://python.developpez.com/cours/apprendre-python3/)| 3 month | [Apprendre python](apprendre-python)|
+|**Learn Python the Hardway**|[Link](learnpythonthehardway.org/book)|2 month| [Python hardway](python-hardway)|
+|**A Gentle Introduction to Python**|[Link](http://mechanicalmooc.org/)|2 month|[Mechanical mooc](mechanical-mooc)|
 
->HTML is the language (with CSS) we will learn for the site of web development, site web like codecademy and freebootcamp are a good introduction and we start directly to practice.
+>HTML is the essential language (with CSS) than we will learn for web development before to jump to something else, site web like codecademy and freebootcamp are a good introduction and we can start directly to practice and play with it.
 
 |Title|Source|Time|Git|
 |---|---|---|---|
@@ -58,4 +60,4 @@ I try to have a time in the day for each of this phases.
 
 ###Phase 4
 
->Same than 3, it is about participating to the community by reading and sharing experiences.
+>Same than 3, it is about participating to the community by reading and sharing experiences. I will put here great place to go, to find documentation and communities.
