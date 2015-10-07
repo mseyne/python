@@ -4,13 +4,15 @@
 Using as much as possible **OER** (open educational resources) and free courses around the web.  
 I plan to develop it mainly in English, but also with materials in French.  
 
->(English is essential for this learning, take the time you need and go slowly trough all the material.)  
+>(English is essential for this learning, take the time you need and go slowly trough all the materials.)  
 
-This path is supposed to be accomplished in many years of dedication, patience and courage. Start from where you are and not what you think you are supposed to be. Don't judge or compare yourself, you are an unique human being, learning computer science shouldn't make you a robot without feeling but should put you deeply in contact with your own experience of being human.
+This path is supposed to be accomplished in many years of dedication, patience and courage. Start from where you are and not from where you think you are supposed to be. Don't judge or compare yourself, you are an unique human being with an unique path, learning computer science shouldn't make you a robot with standardized skills or without having feeling about what you doing and create, in contrary you should be deeply in contact with your own experience as being human.
 
-If you start this with an end result in mind, you will be harassed by the burden of your own expectations and you will give up, you need to enjoy every steps, to enjoy the process, to love the travel you going to make for your own learning. Sometimes you will look back and be amazed by all the results you produced as a side effect. If you don't love what you do, don't do it. Play is learning, not working.
+If you start this with a final result in mind, you will be harassed by the burden of your own expectations and you will give up, you need to enjoy every steps, to enjoy the process of learning, to love the travel you going to make for your own life. Sometimes you will look back and be amazed by all the results you produced as a side effect. If you don't love what you do, don't do it. Learning is play, not working.
 
-See all this material proposed like bricks, you take what you need and build your own house, your personal path, here is the one I built for myself through years of learning, I used my savings, I took full free time and stop to work on anything else to dedicate myself to this path, you certainly don't have (or maybe you can't) to do this, find your own structure you will find yourself good in.
+See all this materials proposed like bricks, you take what you need and build your own house, your personal path, here is the one I built for myself through years of learning. I used my savings, I took full free time and stop to work on anything else to dedicate myself to this path, you certainly don't have (or maybe you can't) to do this, find your own structure you will find yourself good in. You can follow this order, and if you understand why you shouldn't, try to build an other order for yourself.
+
+Let's go.
 
 I try to have a time in the day for each of this phases.  
 * Phase 0 : Mathematics - 5/10 hours per weeks
