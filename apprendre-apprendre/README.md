@@ -11,15 +11,17 @@ les scientifiques ont découvert qu'il existe principalement deux modes de fonct
 
 * Le mode « diffuse » est un temps de repos et de relaxation de l'esprit
 
-Nous pouvons utiliser l'analogie du jeu de flipper, qui sont de très bon moyen d'apprentissage.
+Nous pouvons utiliser une analogie qui est un très bon moyen d'apprentissage, ici le jeu de flipper.
 
 
 ![Les deux différents modes](images/focused-diffused.jpg)
 
 
-Lorsque l'on étudie quelque chose de compliqué, que l'on essaye de comprendre ou d'avoir une idée original, notre esprit à besoin de faire des aller retour entre le mode focused et diffuse, les deux modes d'apprentissage.
+Lorsque l'on étudie quelque chose de compliqué, que l'on essaye de comprendre ou d'avoir une idée original, notre esprit à besoin de faire des aller-retour entre le mode focused et diffuse, les deux modes participant à l'apprentissage.
 
-Il est inutile de rester concentrer en permanence sans laisser le temps à la connaissance de s'installer. Le travail d'apprentissage doit se faire petit à petit, jour après jour en laissant de nombreux temps de repos pour laisser le mode diffuse construire la structure neuronale.
+Il est inutile de rester concentré en permanence sans laisser le temps à la connaissance de s'installer dans le cerveau. Comme un muscle que l'on mettrai en tension en permancence sans le laisser se reposer, ne pourrait pas se construire. De la même façon, le travail d'apprentissage doit se faire petit à petit, jour après jour en laissant de nombreux temps de repos pour laisser le mode "diffuse" construire la structure neuronale, les connections des synapses qui sont à la base de la mémoire.
+
+Pensez à quel moment vous arrivez à résoudre un problème ou à comprendre quelque chose lorsque vous faites face à un problème quel qu'il soit.
 
 >*« For me it work the best, after I worked on a subjet and go for a walk in forest. Suddenly, all my problems go away and I find a lot of solutions in this wandering in the nature state. »*
 
@@ -31,7 +33,7 @@ Toutes nos émotions, peurs, colères, sont contenu dans nos neurones et il nous
 
 Nous avons besoin d'outils comme l'imagerie pour observer le fonctionnement du cerveau et de son million de milliards de neurones. Une chose que l'on constate avec l'imagerie en rapport avec notre sujet est qu'il existe deux zones dans le cerveau qui s'active ou se désactive en fonction, si notre cerveau est en interaction avec le monde ou s'il est au repos.
 
-Contrairement à ce que nous pensions à propos des synapse, que lorsque le cerveau devient mature, la connectivité devient fixe, nous savons aujourd'hui que la connectivité des neurones est actives et dynamique à tout moment de la vie, avec une immense quantité de connexion disparaissant et autant apparaissant lors de nos multiples apprentissage.
+Contrairement à ce que nous pensions à propos des synapses, que lorsque le cerveau devient mature, la connectivité devient fixe, nous savons aujourd'hui que la connectivité des neurones est actives et dynamique à tout moment de la vie, avec une immense quantité de connexion disparaissant et autant apparaissant lors de nos multiples apprentissage.
 
 En fait, on découvre que nous apprenons toujours et que les temps de repos sont essentiel à cette dynamique. Une nuit de sommeil ou simplement une sieste est en réalité l'équivalent d'une mise à jour d'un programme. Chaque matin on se lève avec une nouvelle configuration mentale mise à jour avec les dernières activités utilisées en mode « focused ».
 
