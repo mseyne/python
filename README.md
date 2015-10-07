@@ -44,7 +44,7 @@ I try to have a time in the day for each of this phases.
 |Title|Source|Time|Git|
 |---|---|---|---|
 |(French) **Apprendre à programmer avec Python**|[Link](http://python.developpez.com/cours/apprendre-python3/)| 3 month | [Apprendre python](apprendre-python)|
-|**Learn Python the Hardway**|[Link](learnpythonthehardway.org/book)|2 month| [Python hardway](python-hardway)|
+|**Learn Python the Hardway**|[Link](http://learnpythonthehardway.org/book)|2 month| [Python hardway](python-hardway)|
 |**A Gentle Introduction to Python**|[Link](http://mechanicalmooc.org/)|2 month|[Mechanical mooc](mechanical-mooc)|
 
 >HTML is the essential language (with CSS) than we will learn for web development before to jump to something else, site web like codecademy and freebootcamp are a good introduction and we can start directly to practice and play with it.
