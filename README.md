@@ -35,14 +35,15 @@ I try to have a time in the day for each of this phases.
 >Python is the best language to start on the side of game/app development
 
 |Title|Source|Time|Git|
-|---|---|---|---|Git|
+|---|---|---|---|
 |(French) Apprendre Python|[Link](http://python.developpez.com/cours/apprendre-python3/)| 3 month | [Apprendre python](apprendre-python)|
 
 >HTML is the language (with CSS) we will learn for the site of web development, site web like codecademy and freebootcamp are a good introduction and we start directly to practice.
 
-
-|Codecademy|[Link](https://www.codecademy.com/en/tracks/web)|10 hours|
-|FreeBootCamp|[Link](http://freecodecamp.com/map)|Only the begining track for Html/Css for now, 10 hours|
+|Title|Source|Time|Git|
+|---|---|---|---|
+|Codecademy|[Link](https://www.codecademy.com/en/tracks/web)|10 hours||
+|FreeBootCamp|[Link](http://freecodecamp.com/map)|Only the begining track for Html/Css for now, 10 hours||
 
 ##Phase 3
 
