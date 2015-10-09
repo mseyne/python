@@ -14,7 +14,7 @@ les scientifiques ont découvert qu'il existe principalement deux modes de fonct
 Nous pouvons utiliser une analogie qui est un très bon moyen d'apprentissage, ici le jeu de flipper.
 
 
-![Les deux différents modes](images/focused-diffused.jpg)
+![Les deux différents modes](00_introduction/focused-diffused.jpg)
 
 
 Lorsque l'on étudie quelque chose de compliqué, que l'on essaye de comprendre ou d'avoir une idée original, notre esprit à besoin de faire des aller-retour entre le mode focused et diffuse, les deux modes participant à l'apprentissage.
@@ -37,4 +37,4 @@ Contrairement à ce que nous pensions à propos des synapses, que lorsque le cer
 
 En fait, on découvre que nous apprenons toujours et que les temps de repos sont essentiel à cette dynamique. Une nuit de sommeil ou simplement une sieste est en réalité l'équivalent d'une mise à jour d'un programme. Chaque matin on se lève avec une nouvelle configuration mentale mise à jour avec les dernières activités utilisées en mode « focused ».
 
-####1.3 La procrastination, la mémoire et le sommeil
+####1.3 La procrastination, la mémoire et le sommeil [Lien Github](02_procrastination)
