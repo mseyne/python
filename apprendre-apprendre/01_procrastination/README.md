@@ -13,7 +13,7 @@ Voilà l'astuce, des chercheurs ont découverts que lorsque l'on travail complè
 
 On pourrait schématiser de cette façon comment la procrastination fonctionne.
 
-![](/01_procrastination/procrastination.png)
+![](procrastination.png)
 
 **Premièrement** on observe et on reçoit un signal à propos de quelque chose qui crée un petit sentiment de malaise. **Deuxièmement**, Pour faire partir cette sensation, nous tournons alors notre attention de ce qui causait ce malaise et on la tourne vers quelque chose de plus agréable. **Finalement**, le résultat est de se sentir plus heureux de manière temporaire.
 
@@ -31,14 +31,14 @@ La complexité à apprendre les maths et les sciences sont un exemple intéressa
 
 Il est important de mettre en pratique (amener dans la réalité) les concepts que l'on apprend en math et science, tout comme tout ce que l'on apprend pour nous aider à améliorer et renforcer les connections neuronales que nous fabriquons lors du processus d'apprentissage.
 
-![](/01_procrastination/neurons-struct.png)
+![](neurons-struct.png)
 
 On peut voir ici la représentation symbolique d'un schéma de pensée, les neurons se lient les uns les autres par la répétition d'usage. Plus des choses sont abstraites, plus il est important de mettre en pratique ces idées pour les amener dans notre réalité. Car même si ces idées sont abstraites, les schéma de pensée neuronal que nous créons sont eux réels et concrets. Du moins il le sont si vous les construisez et les renforcez à travers la pratique.
 
 Voici un moyen d'illustrer ce qu'il se passe :
 
 
-![](/01_procrastination/analogie.png)
+![](analogie.png)
 
 Quand nous commençons à comprendre quelque chose, par exemple, comment résoudre un problème, un peu comme le trait léger en rouge clair en haut de notre analogie d'esprit flipper, quand nous résolvons de nouveau la solution à notre problème sans regarder la solution, nous commençons à approfondir ce schéma neuronal, un peut comme le trait rouge du milieu, un peu plus visible et lorsque vous résolvez votre problème à partir de zéro et d'autres problèmes lié à celui-ci, nous inscrivons plus profondément notre connaissance. (trait le plus visible) 
 
