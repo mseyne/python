@@ -37,4 +37,4 @@ Contrairement à ce que nous pensions à propos des synapses, que lorsque le cer
 
 En fait, on découvre que nous apprenons toujours et que les temps de repos sont essentiel à cette dynamique. Une nuit de sommeil ou simplement une sieste est en réalité l'équivalent d'une mise à jour d'un programme. Chaque matin on se lève avec une nouvelle configuration mentale mise à jour avec les dernières activités utilisées en mode « focused ».
 
-####1.3 La procrastination, la mémoire et le sommeil [Lien Github](02_procrastination)
+####1.3 La procrastination, la mémoire et le sommeil [Lien Github](01_procrastination)
