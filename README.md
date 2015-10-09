@@ -1,6 +1,8 @@
 # FREE & OPEN SOURCE HACKER (FOSH) 
 *A path on self-learning COMPUTER SCIENCE through GAME and WEB DEVELOPMENT.*
 
+Personal repository from the [Open Source Society University](https://github.com/open-source-society/computer-science)
+
 Using as much as possible **OER** (open educational resources) and free courses around the web.  
 I plan to develop it mainly in English, but also with materials in French.  
 
