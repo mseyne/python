@@ -8,38 +8,45 @@ source : (http://python.developpez.com/cours/apprendre-python3/)
 
 ####leçon 0 : introduction à la programmation et le langage python + installation
 
-qu'est ce que le développement logiciel et un langage de programmation ?
-introduction au langage python, comment l'installer (sous windows, linux et mac)
-et comment lancer et utiliser une console shell(powershell, terminal)
-- présentation de idle, interpréteur et éditeur de texte
+* qu'est ce que le développement logiciel et un langage de programmation ?
+* introduction au langage python, comment l'installer (sous windows, linux et mac)
+* comment lancer et utiliser une console shell(powershell, terminal)
+* présentation de idle, interpréteur et éditeur de texte
 
 ####leçon 1 :  première utilisation de l'interpréteur et des nombres
 
-des nombres int, float
-des calculs, opérateurs mathématiques + - / * (// % etc)
-la fonction type()
-les commentaires #
+* des nombres int, float
+* des calculs, opérateurs mathématiques + - / * (// % etc)
+* la fonction type()
+* les commentaires #
 
 ####leçon 2 : les variables et les chaines de caractères
 
-assignement de variable =
-La fonction print() et les chaînes de caractères string
-la fonction input()
-la bibliothèque sys, l'argument argv ?
+* assignement de variable =
+* La fonction print() et les chaînes de caractères string
+* la fonction input()
+* la bibliothèque sys, l'argument argv ?
 
-#### Leçon 3 : 
+#### Leçon 3 : les boucles
 
-incrémentation +1
-l'opérateur modulo %
+* boucle while
+* boucle for
+* incrémentation +1
+* l'opérateur modulo %
 
-#### Leçon 4 : les listes
+#### Leçon 4 : les listes et dictionnaires
 
-len()
-del et .remove()
-append()
+* len()
+* del et .remove()
+* append()
+
+#### Leçon 5 : les fonctions
+
+* def
+* variable global
 
 
-Installation de Python et de l'IDLE
+######Installation de Python et de l'IDLE, et un éditeur de texte
 
 Première approche de la syntaxe du language.
 
@@ -60,12 +67,13 @@ Une expression renvoi toujours une valeur. Même une valeur peut devenir une exp
 >>> - 5
 -5
 
-Données (valeurs) et types et la fonction type( )
+######Données (valeurs) et types et la fonction type( )
 
 Les données sont les informations tel que les nombres et les lettres (appelées chaînes de caractère) que le programme utilise pour fonctionner. Pour les nombres il existe dans python principalement deux types, les nombres entiers sont de type integer (int) et les nombres décimaux sont de type float.
 
 Dans l'interpréteur la fonction type( ) permet de connaître le type dans lequel python range la donnée.
 
+'''python
 >>> type(42)
 <class 'int'>
 >>> type(1)
@@ -74,18 +82,20 @@ Dans l'interpréteur la fonction type( ) permet de connaître le type dans leque
 <class 'float'>
 >>> type(3.14)
 <class 'float'>
+'''
 
 Il existe aussi le type string (str) pour les chaînes de caractères que nous veront ailleurs.
 
 >>> type("hello")
 <class 'str'>
 
-Variables
+#####Variables
 
 Une variable est une boite dans laquelle se trouve une donnée, une valeur.
 Il s'agit d'un nom pour une objet.
 Assignation/Affectation d'une valeur à une variable.
 
+'''python
 >>> x = 5 * 5
 >>> print (x)
 25
@@ -98,13 +108,14 @@ Bonjour !
 >>> print(a, b, c)
 5 5 10
 >>> 
+'''
 
 
-
-Chaîne de caractères
+######Chaîne de caractères
 
 L'interpréteur Python reconnaît les lettres et les mots comme des fonctions ou des variables, lorsque l'on souhaite utiliser les lettres et les nombres comme une données à utiliser dans le programme en dehors des calculs, il existe les chaînes de caractères de type string (str)
 
+'''python
 >>> Bonjour
 Traceback (most recent call last):
 File "<pyshell#15>", line 1, in <module>
@@ -117,12 +128,14 @@ NameError: name 'Bonjour' is not defined
 <class 'str'>
 >>> type("Bonjour")
 <class 'str'>
->>> 
+>>>
+''' 
 
 Ce que l'on remarque dans cet exemple, c'est que l'utilisation de lettres dans l'interpréteur renvoie une erreur, car Python cherche une variable appelé Bonjour mais qui n'a jamais été défini. 
 
 On utilise l'apostrophe (single quote) ou le guillemet (double quote) pour signifier au programme l'utilisation d'une chaîne de caractère string.
 
+'''python
 >>> "Bonjour"
 'Bonjour'
 >>> 'Bonjour'
@@ -132,12 +145,13 @@ On utilise l'apostrophe (single quote) ou le guillemet (double quote) pour signi
 >>> "4566"
 '4566'
 >>> 
+'''
 
 Des nombres entre guillemet sera toujours considéré comme une chaîne de caractère pour python et non pas une donnée integer ou float.
 
 La différence entre une fonction et une variable sera expliqué plus loin.
 
-Instructions (Statements)
+######Instructions (Statements)
 
 Les intructions sont toutes les commandes légales du programme que Python peut interpréter.
 
@@ -145,10 +159,12 @@ Les intructions sont toutes les commandes légales du programme que Python peut 
 >>> print(1) # utilisation de la fonction print ( )
 1
 
-Opérations et opérandes : Quelques expressions mathématiques dans l'interpréteur :
+######Opérations et opérandes : 
+Quelques expressions mathématiques dans l'interpréteur :
 
 En utilisant les nombres et les opérateurs mathématiques, il est possible de faire des opérations directement dans l'interpréteur python. Les opérateurs mathématiques +, -, * et / sont reconnus par python. 
 
+'''python
 >>> 1 + 2
 3
 >>> 9 - 6
@@ -164,9 +180,11 @@ SyntaxError: invalid syntax
 >>> (2 + 3) * 5
 25
 >>> 
+'''
 
 Il est possible d'utiliser les opérateurs avec des chaînes de caractères.
 
+'''python
 >>> "ab" * 3
 'ababab'
 >>> "a" + "bc" #Concaténation
@@ -179,8 +197,9 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>> str(3) + "a" # changement de type avec la fonction str( )
 '3a'
 >>> 
+'''
 
-Ordre des opérations (P – E – MD - AS)
+######Ordre des opérations (P – E – MD - AS)
 
 1)Parenthèses
 
@@ -199,7 +218,7 @@ Ordre des opérations (P – E – MD - AS)
 4)Addition et Soustraction
 
 
-La fonction print( )
+######La fonction print( )
 
 La fonction print( ) permet d'afficher à l'écran une donnée.
 
@@ -227,11 +246,11 @@ print("monde", end=" ")
 print("!", end=" ")
 bonjour monde !
 
-Commentaires # et ''''''
+######Commentaires # et ''''''
 
 Les commentaires sont des instructions ignorées par Python qui permettent de documenter le programme et en faciliter la lecture.
 
-La fonction input()
+######La fonction input()
 
 Le fonction input( ) permet d'attendre de l'utilisateur une donnée à entrer dans le programme.
 
@@ -241,7 +260,7 @@ Quel est ton nom ?
 Bonjour michael
 
 
-Le type boolean : fonction bool( )
+######Le type boolean : fonction bool( )
 
 Une valeur booléenne est soit True (vrai) soit False (fausse) 
 
@@ -251,7 +270,7 @@ True
 False
 >>> 
 
-Opérateurs logiques Or, And et Not
+######Opérateurs logiques Or, And et Not
 
 l'opérateur Not transforme vrai en faux et faux en vrai.
 
@@ -281,7 +300,7 @@ True
 True
 >>> 
 
-L'opérateur modulo % et les opérateurs de division / et //
+######L'opérateur modulo % et les opérateurs de division / et //
 
 Tandis que l'opérateur de division travaille sur une donnée integer 
 
@@ -293,7 +312,7 @@ Tandis que l'opérateur de division travaille sur une donnée integer
 1
 >>> 
 
-String ou Chaînes de caractères
+######String ou Chaînes de caractères
 
 Un nombre est converti en chaine de caractère avec la fonction str( ). (de la même façon une chaine de caractères contenant des nombres peut être converti avec la fonction int( ) et float( ) )
 
@@ -389,9 +408,7 @@ Quel est ton nom ?Michael
 'Bonjour Michael'
 >>> 
 
-
-
-Conditions if, elif, else
+######Conditions if, elif, else
 
 if est une instruction que nous appelons une condition, elle est suivit d'une expression qui se doit d'être vrai pour que le bloc indenté sous la condition soit executé par le programme.
 
@@ -425,7 +442,7 @@ Les opérateurs de comparaisons dans les instructions conditionnels
 
 En utilisant un opérateur de comparaison python retourne une valeur booléenne. (True, False)
 
-Boucle while
+######Boucle while
 
 La boucle while est suivie d'une intructions qui répète le bloc d'instruction indenté dans la boucle tant que l'instruction est vrai (True).
 
@@ -439,7 +456,12 @@ La boucle while est suivie d'une intructions qui répète le bloc d'instruction 
 2 bonbon(s)
 3 bonbon(s)
 
-Incrémentation
+######Boucle For
+
+>>>for i in range(10)
+		print(i)
+
+######Incrémentation
 
 L'incrémentation est utile dans boucle car il s'agit d'augmenter ou diminuer une valeur à elle-même progressivement afin de la faire atteindre une valeur qui est necessaire pour remplir une condition.
 
@@ -463,7 +485,7 @@ L'incrémentation est utile dans boucle car il s'agit d'augmenter ou diminuer un
 >>> 
 
 
-Liste
+######Liste
 
 Une liste est un ensemble de données assigné au sein d'une même variable. 
 
@@ -520,13 +542,14 @@ ou d'en ajouter une  avec la méthode .append()
 >>>x
 [1, 1, 'bonjour']
 
-Boucle For
----
 
-Dictionnaires
----
 
-Premiers modules
+######Dictionnaires
+
+>>>a = {"0" : 0, "1" : 1} 
+
+
+######Premiers modules
 
 ex : Import Math
 
@@ -541,6 +564,10 @@ ex : Import Random
 
 ex : Import Turtle
 
+###### Définir une fonction
 
 
-http://pygments.org/
+
+###### Variable globale
+
+à l'intérieure d'une fonction, on peut informer que nous ne souhaitons pas qu'une variable soit locale, mais modifie une variable globale
