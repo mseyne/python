@@ -2,8 +2,8 @@
 Adapté du cours proposé sur coursera par Barbara Oakley : [Learning how to learn](https://www.coursera.org/learn/learning-how-to-learn)
 
 
-###1. Qu'est ce qu'apprendre ?
-####1.1 La pensée "focused" et la pensée "diffuse"
+###Qu'est ce qu'apprendre ?
+####La pensée "focused" et la pensée "diffuse"
 
 les scientifiques ont découvert qu'il existe principalement deux modes de fonctionnement du cerveau lors de l'apprentissage, le mode focused, et le mode diffuse.
 
@@ -25,7 +25,7 @@ Pensez à quel moment vous arrivez à résoudre un problème ou à comprendre qu
 
 >*« For me it work the best, after I worked on a subjet and go for a walk in forest. Suddenly, all my problems go away and I find a lot of solutions in this wandering in the nature state. »*
 
-####1.2 Qu'est ce qu'apprendre, introduction
+####Qu'est ce qu'apprendre, introduction
 
 Le cerveau humain est un organe qui consomme le plus d'energie par rapport à son poids que le reste du corps. Il s'agit du dispositif le plus complexe qui soit connu dans l'univers.
 
@@ -37,4 +37,6 @@ Contrairement à ce que nous pensions à propos des synapses, que lorsque le cer
 
 En fait, on découvre que nous apprenons toujours et que les temps de repos sont essentiel à cette dynamique. Une nuit de sommeil ou simplement une sieste est en réalité l'équivalent d'une mise à jour d'un programme. Chaque matin on se lève avec une nouvelle configuration mentale mise à jour avec les dernières activités utilisées en mode « focused ».
 
-####1.3 La procrastination, la mémoire et le sommeil [Lien Github](01_procrastination)
+####1 [La procrastination](01_procrastination)
+####2 [La mémoire](02_memoire)
+####3 [Le sommeil](03_sommeil)

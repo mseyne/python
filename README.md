@@ -1,10 +1,10 @@
 # FREE & OPEN SOURCE HACKER (FOSH) 
-*A path on self-learning COMPUTER SCIENCE through GAME and WEB DEVELOPMENT.*
+*A path on self-learning COMPUTER SCIENCE through GAME, APP and WEB DEVELOPMENT.*
 
 Personal repository from the [Open Source Society University](https://github.com/open-source-society/computer-science)
 
 Using as much as possible **OER** (open educational resources) and free courses around the web.  
-I plan to develop it mainly in English, but also with materials in French.  
+I plan to develop this path mainly in English, but also with materials in French.  
 
 >(English is essential for this learning, take the time you need and go slowly trough all the materials.)  
 
@@ -23,17 +23,17 @@ I try to have a time in the day for each of this phases.
 * Phase 3 : Coding personal projects - 15/20 hours per weeks
 * Phase 4 : Writing documentation and helping - 5/10 hours per weeks
 
->Quote : Hours per weeks proposed here are the ideal I built by lot of iterating and test about my own learning process, but you will find out what is the best for you.
+>Quote : Hours per weeks proposed here are the ideal I built by lot of iterating and test about my own learning process, but you will find out what is the best for you. I also really recommend the course Learning to learn to get started, because it can give you great insight about the way you deal when directing yourself to learn (to address fear of unknown, procrastination, belittle yourself, stress, all that make the learning more difficult).
 
-###Phase 0
+###Phase 0, mathematics
 
->Whatever is your level in math, start from where you are good and let flow the process on khan academy until the end, then we will talk about math for computer science.
+>Whatever is your level in math, start from where you are good and let flow the process on khan academy until the end, then we will talk about math for computer science. If you really don't want to follow the math track, know than you don't need much math to be developer in many area, it just give you more tools to feel confidente and go deeper in the process and algorithms. Also, know than being good in math does not mean you can be a good programmer/developper, it is different area, both have their strenghts.
 
 |Title|Source|Time|Git|
 |---|---|---|---|
 |**Khan Academy**|[Link](https://www.khanacademy.org/mission/math)|1 year||
 
-###Phase 1
+###Phase 1, computer science
 
 >I would propose to start with this course about learning to learn, have great insight about the learning process without the need to do an introduction to psychology :
 
@@ -41,7 +41,7 @@ I try to have a time in the day for each of this phases.
 |---|---|---|---|
 | **Learning to learn** | [Link](https://www.coursera.org/learn/learning-how-to-learn) | The first month |[Apprendre à apprendre](apprendre-apprendre)|
 
-###Phase 2
+###Phase 2, web, app and game developpement
 
 >In my opinion, Python is the best language to start programmation and making little tools/games/app, you don't have to do all of them like I did.
 
@@ -58,10 +58,10 @@ I try to have a time in the day for each of this phases.
 |**Codecademy**|[Link](https://www.codecademy.com/en/tracks/web)|10 hours||
 |**FreeBootCamp**|[Link](http://freecodecamp.com/map)|Only the begining track for Html/Css for now, 10 hours||
 
-###Phase 3
+###Phase 3, practice open source project (personal and teams)
 
 >Here I will give you tips only, because it is about creativity and practicing, not following course.
 
-###Phase 4
+###Phase 4, write down your experience, write documentation and tutorials/courses, communicate with the community
 
 >Same than 3, it is about participating to the community by reading and sharing experiences. I will put here great place to go, to find documentation and communities.

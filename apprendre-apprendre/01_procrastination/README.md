@@ -1,9 +1,4 @@
-##Apprendre à apprendre
-
-*Adapté du cours proposé sur coursera par Barbara Oakley :* [Learning how to learn](https://www.coursera.org/learn/learning-how-to-learn)
-
-
-####Chapitre 1.1 Procrastination, Mémoire et Sommeil
+####Chapitre 01 Procrastination
 
 Tout le monde à plus ou moins de problèmes avec la procrastination, parce que si vous travaillez sur quelque chose, cela veut dire que vous ne travailler pas sur toutes ces autres choses que vous souhaiteriez faire. Certaines personnes ont plus de problèmes avec la procrastination que d'autres.
 
