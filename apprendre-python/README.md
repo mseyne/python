@@ -549,6 +549,67 @@ ou d'en ajouter une  avec la méthode .append()
 >>>a = {"0" : 0, "1" : 1} 
 
 
+
+###### Définir une fonction originale
+
+def nom_fonction(paramètres):
+	instructions
+
+Voici un exemple de fonction simple :
+
+>>> def table(n):
+...    c = 1
+...    while c < 11 :
+...       print(c * n, end =' ')
+...       c = c + 1
+...
+Nous pouvons ensuite appeler la fonction "table" autant de fois que l'on souhaite en lui donnant un paramètre "n".
+
+>>>table(7)
+7 14 21 28 35 42 49 56 63 70
+
+
+
+###### Variable globale
+
+
+À l'intérieure d'une fonction, on peut informer que nous ne souhaitons pas qu'une variable soit locale, mais modifie une variable globale qui a été défini hors de la fonction. On peut faire cela dans une fonction en déclarant la variable globale avec l'instruction global.
+
+>>>def up():
+...	global a
+...	a += 1
+>>>a = 15
+>>>up(a)
+>>>print(a)
+16
+>>>up(a)
+>>>print(a)
+17
+
+
+
+###### Return
+
+Une fonction le plus souvent reçoit des données, les transforment et renvoie de nouvelles données, pour renvoyer, elle utilise l'instruction return
+
+>>>def cube(x):
+... 	return x * x * x
+
+>>>b = cube(9)
+>>> print(b)
+729
+
+
+###### Commentaire de fonction
+
+utilise " pour créer un commentaire qui est lié à la fonction et est accessible par la suite par print(fonction.__doc__)
+
+>>> def carre(a)
+... 	"met au carré a"
+...	n = a * a
+... 	return n
+
+
 ######Premiers modules
 
 ex : Import Math
@@ -564,10 +625,14 @@ ex : Import Random
 
 ex : Import Turtle
 
-###### Définir une fonction
 
+###### Créer un nouveau module 
 
+Si la fonction est sauvegardé dans un fichier, elle peut être appelé comme un module avec import et est alors utilisé avec son nom de fichier. 
 
-###### Variable globale
+Ex, Si l'on sauvegarde la fonction précédente (carre) dans le fichier cr.py on peut l'appeler dans un autre fichier de programme ainsi :
 
-à l'intérieure d'une fonction, on peut informer que nous ne souhaitons pas qu'une variable soit locale, mais modifie une variable globale
+>>>import cr
+>>>cr.carre(4)
+16
+
