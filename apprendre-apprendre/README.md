@@ -40,3 +40,4 @@ En fait, on découvre que nous apprenons toujours et que les temps de repos sont
 ####1 [La procrastination](01_procrastination)
 ####2 [La mémoire](02_memoire)
 ####3 [Le sommeil](03_sommeil)
+####4 [Les groupements](04_groupements)
