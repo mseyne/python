@@ -15,7 +15,7 @@ Quand on découvre une chose pour la première fois, nous n'y trouvons pas beauc
 Simplement mémoriser un fait hors d'un contexte ne permet pas vraiment de savoir ce qu'il se passe ou comment le concept s'assemble avec d'autre concepts que l'on apprend. Ce serait comme une pièce de puzzle qui n'aurait pas de partie pour se rattacher à l'ensemble du puzzle. Nous avons parlé des 4 emplacement pour groupement dans la mémoire de travail.
 
 
-![Mode concentré avec 4 emplacement et mode diffus](focus-diffuse)
+![Mode concentré avec 4 emplacement et mode diffus](focus-diffuse.png)
 
 
 Ce serait un peu comme un poulpe qui utiliserait ces quatre emplacement de la mémoire à courte terme pour faire des connections avec l'information que nous avons dans différentes partie du cerveau. Cela est différent du mode diffus qui crée des connections aléatoires. Le mode concentré qui utilise les quatre emplacements de la mémoire active, qui consiste à faire attention à l'information pour connecter des parties du cerveau / relier entre elle les idées est une partie importante de l'apprentissage. C'est aussi ce qui aide à commencer la création de groupement.
