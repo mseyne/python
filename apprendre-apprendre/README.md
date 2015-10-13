@@ -41,3 +41,4 @@ En fait, on découvre que nous apprenons toujours et que les temps de repos sont
 ####2 [La mémoire](02_memoire)
 ####3 [Le sommeil](03_sommeil)
 ####4 [Les groupements](04_groupements)
+####5 [Former des groupements](05_former_groupe)
