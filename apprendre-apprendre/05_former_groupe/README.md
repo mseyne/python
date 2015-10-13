@@ -20,7 +20,7 @@ Toutes les disciplines sont différentes, un groupement sur l'histoire est diff�
 
 1. la première étape pour faire un groupement est de se **concentrer** avec une attention non divisé sur l'information que vous souhaitez grouper. Il est important de ne pas avoir de disctraction (télévion, téléphone) qui rendrait difficile le groupement des nouvelles informations. Quand vous apprennez quelque chose de nouveau, vous créez de nouveaux schémas neuronals qui se connectent à des schéma préexistant qui sont répandu dans de nombreuses zones du cerveau, les tentacules de votre poulpe ne peuvent pas les atteindres correctemment si vos pensées se trouve ailleurs et empéchant l'utilisation optimale des quatres emplacements de la mémoire de travail.
 
-[](octopus.png)
+![](octopus.png)
 
 2. La deuxième étape est de **comprendre** l'idée de base que vous essayer de grouper, que ce soit un concept comme la formation de la terre ou comprendre un certain type de problème mathématique. Il est possible de synthétiser l'idée générale, de l'approcher naturellement en laissant les deux modes focus et et diffuse de fonctionner. Comprendre c'est comme une super colle, cela crée des traces mémoriels larges qui permettent de se connecter aux autres traces. On peut créer un groupement sans comprendre, mais celui ci sera isolé et ne pourra pas se connecter au reste, il sera inutile à l'apprentissage global.
 
@@ -28,7 +28,7 @@ Il est important de savoir que simplement comprendre comment résoudre un probl�
 
 3. La troisième étape pour la construction d'un groupement est de le placer dans un **contexte**, ce qui veut dire ne pas seulement savoir comment l'utiliser mais aussi quand l'utiliser. Le contexte signifi aller au delà du problème initial et de voir plus globalement, en **le pratiquant et le répétant** avec des problèmes qui ne sont pas lié immédiatement à ce groupement ce qui permet de savoir quand utiliser ce groupement mais aussi quand ne pas l'utiliser.Cela permet de savoir comment se place votre nouveau groupement dans une perspective plus vaste. C'est comme avoir un outil dans sa boite à outils et savoir à quel moment s'en servir, sinon il ne servirait à rien. La pratique permet d'élargir le réseau de neurones qui sont connecté à ce groupement, ce qui lui permet non seulement d'être solide mais aussi accessible par différents chemins.
 
-[](context.png)
+![](context.png)
 
 Comme on peut le voir sur l'image, l'apprentissage se déroule de deux manières. Il y a un processus du bas vers le haut de construction de groupements qui par la pratique et la répétition aide à la fois à construire et à renforcer chaque groupement(chunk) de manière à y accéder facilement quand vous en avez besoin. Il y a aussi un processus du haut vers le bas, qui est la perspective globale qui permet de voir ce que l'on apprend et comment cela s'assemble. Les deux processus sont vitals pour réussir à maitriser l'information. Le context est là ou les groupements et la perspective globale se retrouve.
 
