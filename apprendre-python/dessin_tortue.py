@@ -1,3 +1,4 @@
+# -*- coding:Utf:8 -*-
 from turtle import *
 
 def carre(taille, couleur, angle):
@@ -7,14 +8,14 @@ def carre(taille, couleur, angle):
 	left(angle)
 	while c < 4:
 		forward(taille)
-		right(90)
+		left(90)
 		c = c + 1
 
 def triangle(taille, couleur, angle):
 	"fonction qui dessine un triangle équilatéral de taille, d'angle et de couleur déterminées"
 	color(couleur)
 	c = 0
-	right(angle)
+	left(angle)
 	while c < 3:
 		forward(taille)
 		right(120)
@@ -24,12 +25,36 @@ def etoileCinq(taille, couleur, angle):
 	"fonction qui dessine une étoile"
 	color(couleur)
 	c = 0
-	left(angle)
+	right(angle)
 	while c < 5:
 		forward(taille)
 		right(144)
 		c += 1
 
-def etoileSix():
+def etoileSix(taille, couleur, angle):
 	"fonction qui utilise la fonction triangle 2 fois de manière inversé pour obtenir l'étoile à six branches"
-	pass
+	# color(couleur)
+	# c = 0
+	# left(angle)
+	# #premier triangle
+	# while c < 3:
+	# 	forward(taille)
+	# 	right(120)
+	# 	c += 1
+
+	triangle(taille, couleur, angle)
+
+	up()
+	right(90)
+	forward(taille/2)
+	left(90)
+	down()
+
+	#deuxième triangle
+	c = 0
+	while c < 3:
+		forward(taille)
+		left(120)
+		c += 1
+
+	right(45) # c'est cette rotation qui permet la spirale de l'ex 7_8

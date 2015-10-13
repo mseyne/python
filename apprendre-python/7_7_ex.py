@@ -1,3 +1,4 @@
+# -*- coding:Utf:8 -*-
 from dessin_tortue import *
 
 up()
