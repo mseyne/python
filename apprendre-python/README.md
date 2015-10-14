@@ -636,3 +636,13 @@ Ex, Si l'on sauvegarde la fonction précédente (carre) dans le fichier cr.py on
 >>>cr.carre(4)
 16
 
+###### Valeur par défaut définition d'une fonction
+
+Il est possible de définir par défault un argument avec une valeur, si la fonction est appelé sans cet argument, il utilisera la valeur par défault, sinon l'argument prendra la valeur envoyé.
+
+>>>def politesse(nom, titre ='Monsieur')
+...		print("Bonjour", titre, nom)
+>>>politesse("Michael")
+Bonjour Monsieur Michael
+>>>politesse("Laura", "Madame")
+Bonjour Madame Laura
