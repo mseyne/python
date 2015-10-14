@@ -1,7 +1,5 @@
-- resume
-- curriculum with porfolio
-
-Front End 
+- course resume, quotes
+- curriculum with porfolio projects
 
 - html/css
 - javascript/jquery
@@ -11,8 +9,6 @@ Front End
 - angular.js
 - ajax/dom/w3standart
 - wordpress hacking
-
-Back End
 
 - python/django good
 - C et C++ basic
