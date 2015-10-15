@@ -1,33 +1,32 @@
 # -*- coding:Utf-8 -*-
 
 def changeCar(ch, ca1=" ", ca2="*", debut = 0, fin = 0):
-	
 	nPhrase = ""
-	
-	if fin <= 0:
-		fin = len(ch)
+	c = debut
+	f = fin
 
-	# for i in range(0, debut):
-	# 	nPhrase += ch[i]
+	if f <= c:
+		f = len(ch)
 
-	for i in range(debut, fin+1):
-		if ch[i] == ca1:
+	while c < f:		
+		if ch[c] == ca1:
 			nPhrase += ca2
 		else:
-			nPhrase += ch[i]
-
-	# for i in range(fin, len(ch)):
-	# 	nPhrase += ch[i]
+			nPhrase += ch[c]
+		c += 1
 
 	return nPhrase
 
+#print("DEBUG", changeCar("Ceci est une longue phrase avec beaucoup d'espace !", "e", "3", 4, 20))
+
 phrase = input("Choisissez une phrase :\n>>>")
-caraPlus = input ("Choisissez le caratère que vous souhaitez ajouter :\n>>>")
-caraMoin = input ("Choisissez le caratère que vous souhaitez enlever :\n>>>")
+caraMoin = input("Choisissez le caratère que vous souhaitez enlever :\n>>>")
+caraPlus = input("Choisissez le caratère que vous souhaitez ajouter :\n>>>")
+
 commence = int(input("À quel index souhaitez vous commencer?\n>>>"))
 termine = int(input("À quel index souhaitez vous terminer?\n>>>"))
 
-print(changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus))
-print(changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, debut = commence, fin = termine))
-print(changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, debut = commence))
-print(changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, fin = termine))
+print("1:", changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus))
+print("2:", changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, debut = commence, fin = termine))
+print("3:", changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, debut = commence))
+print("4:", changeCar(ch = phrase, ca1 = caraMoin, ca2 = caraPlus, fin = termine))
