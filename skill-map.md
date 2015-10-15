@@ -1,8 +1,12 @@
+for a free and open education
+
 - course resume, quotes
 - curriculum with porfolio projects
-- computer science, software engineering and developement, electronic engineering
+- computer science and software engineering through web and game developement
 
 ===
+
+Web, Mobile Dev tools
 
 - html/css
 - javascript/jquery
@@ -12,16 +16,22 @@
 - angular.js
 - meteor
 - ajax/dom/w3standart
-- wordpress hacking
+- wordpress hacking/setting
+- python, django, flask, bottle
 
-- python
-- django, flask, bottle
+===
+
+Game, Sys Dev tools
+
+- Python, pygame, kivy
 - C et C++ basic
 - gtk, qt, wx, tkinter
 - pygame
 
+===
+
+Dev tools
+
 - Github et Git
 - Text editor/IDE
 - linux/command line
-
-- electronic
