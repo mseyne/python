@@ -42,3 +42,6 @@ En fait, on découvre que nous apprenons toujours et que les temps de repos sont
 ####3 [Le sommeil](03_sommeil)
 ####4 [Les groupements](04_groupements)
 ####5 [Former des groupements](05_former_groupe)
+####6 [Illusion de compétences](06_illusion_competence)
+####7 [La valeur de la bibliothèque des groupements](07_bibliotheque_groupes)
+####x [...]()
