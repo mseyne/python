@@ -36,4 +36,15 @@ bou.pack()
 
 ## méthode .mainloop()
 
+boucle du programme
+
 fen.mainloop()
+
+
+## class d'objets
+
+create_line(x1, y1, x2, y2, )
+create_rectangle()
+create_arc()
+create_oval()
+create_polygon(x0, y0, x1, y1, x2, y2)
