@@ -2,11 +2,11 @@ for a free and open education
 
 - course resume, quotes
 - curriculum with porfolio projects
-- computer science and software engineering through web and game developement
+- free and open source education in computer science through web and game developement
 
 ===
 
-Web, Mobile Dev tools
+Web Dev and tools
 
 - html/css
 - javascript/jquery
@@ -21,17 +21,10 @@ Web, Mobile Dev tools
 
 ===
 
-Game, Sys Dev tools
+Game Dev and tools
 
 - Python, pygame, kivy
-- C et C++ basic
 - gtk, qt, wx, tkinter
-- pygame
-
-===
-
-Dev tools
-
 - Github et Git
 - Text editor/IDE
 - linux/command line
