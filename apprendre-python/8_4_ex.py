@@ -11,7 +11,7 @@ coul = 'dark green'
 #fonctions
 
 def drawline():
-	#global x1, y1, x2, y2
+	global x1, y1, x2, y2
 	can1.create_line(x1, y1, x2, y2, width=2, fill=coul)
 	y2, y1 = y2+10, y1+10
 

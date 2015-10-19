@@ -43,8 +43,17 @@ fen.mainloop()
 
 ## class d'objets
 
-create_line(x1, y1, x2, y2, )
-create_rectangle()
-create_arc()
-create_oval()
+create_line(x1, y1, x2, y2)
+create_rectangle(x1, y1, x2, y2)
+create_arc(x1, y1, x2, y2)
+create_oval(x1, y1, x2, y2)
 create_polygon(x0, y0, x1, y1, x2, y2)
+
+## methods
+
+pack(side=, padx, pady)
+pack_forget()
+
+## Canvas
+
+tkinter.Canvas(master, bg = "couleur", width = largeur, height = hauteur)
