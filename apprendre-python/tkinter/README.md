@@ -49,11 +49,58 @@ create_arc(x1, y1, x2, y2)
 create_oval(x1, y1, x2, y2)
 create_polygon(x0, y0, x1, y1, x2, y2)
 
-## methods
+## methods .pack() et .pack_forget()
 
 pack(side=, padx, pady)
 pack_forget()
 
-## Canvas
+## .destroy() et .delete()
+
+## tkinter.Canvas
 
 tkinter.Canvas(master, bg = "couleur", width = largeur, height = hauteur)
+
+## tkinter.Frame
+
+tkinter.Frame(master, bg = "couleur")
+
+## tkinter.Entry
+
+tkinter.Entry(master)
+
+## tkinter.Label et tkinter.Message
+
+tkinter.Label(master)
+tkinter.Message(master)
+
+## .configure() .config()
+
+permet de changet les propriétés d'un widget
+
+## .get()
+
+permet de récupérer une donnée dans le widget Entry
+
+## .bind()
+
+permet de lier à une touche un évènement, une fonction
+
+entree.bind("<Return>", fonction)
+
+# tkinter.Checkbutton
+
+# tkinter.Listbox
+
+# tkinter.Menu et tkinter.Menubutton
+
+# tkinter.Radiobutton
+
+# tkinter.Scale
+
+# tkinter.Scrollbar
+
+# tkinter.Text
+
+# tkinter.Toplevel
+
+# .grid() et .place()
