@@ -1,4 +1,4 @@
-# 08, Surmenage
+# 08, Surménage et sens
 
 Quand on apprend une nouvelle idée, par exemple un nouveau mot de vocabulaire, un nouveau concept et une nouvelle façon de résoudre un problème, nous avons tendance à le pratiquer de manière répété pendant la même session d'apprentissage.
 
