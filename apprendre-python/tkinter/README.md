@@ -104,3 +104,7 @@ entree.bind("<Return>", fonction)
 # tkinter.Toplevel
 
 # .grid() et .place()
+
+# canvas itemconfig
+
+# .coords()
