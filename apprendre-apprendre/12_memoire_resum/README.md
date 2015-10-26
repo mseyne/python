@@ -1,4 +1,4 @@
-# PLus sur la mémoire
+# 12, Résumé sur la mémoire
 
 La mémoire est seulement une partie de l'apprentissage et du développement de l'expertise, mais il s'agit d'une partie importante.
 
