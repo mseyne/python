@@ -1,13 +1,16 @@
-# Applications graphiques avec Tkinter
+# Applications avec interface graphiques utilisant la bibliothèque Tkinter
 
 ## Importer le module
 
 import tkinter
-from tkinter import *
 
 example 
 
 >>>import tkinter as tk
+
+ou
+
+>>>from tkinter import *
 
 ## Instanciation de la classe fenêtre Tk()
 
@@ -103,8 +106,28 @@ entree.bind("<Return>", fonction)
 
 # tkinter.Toplevel
 
-# .grid() et .place()
+# .grid()
+
+utilisation d'une grille en ligne/colonne pour placer les objets dans la fenêtre
+
+exemple :
+
+>>> canva1.grid(row=1, column=1)
+... canva2.grid(row=1, column=2)
+... canva3.grid(row=2, column=1, columnspan=2) # s'étend au deuxième rang sur les deux colonnes
+
+# .place()
 
 # canvas itemconfig
 
+permet de changer les propriété à un objet présent dans un canvas
+
+exemple
+
+>>> canva.intemconfig(text, text="hello")
+
 # .coords()
+
+permet de changer les propriété à d'un widget présent
+
+>>> canva.coords(oval, x, y, x, y)
