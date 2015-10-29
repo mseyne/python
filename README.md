@@ -18,12 +18,18 @@ Let's go.
 
 I try to have a time in the day for each of this phases.  
 * Phase 0 : Mathematics - 5/10 hours per weeks
-* Phase 1 : Computer Science Theory - 10/15 hours per weeks
-* Phase 2 : Programming Courses - 10/15 hours per weeks
+* Phase 1 : Computer Science Courses - 10/15 hours per weeks
+* Phase 2 : Practical Programming Courses - 10/15 hours per weeks
 * Phase 3 : Coding personal projects - 15/20 hours per weeks
 * Phase 4 : Writing documentation and articles to teach/learn the material - 5/10 hours per weeks
 
 >Quote : Hours per weeks proposed here are the ideal I built by lot of iterating and test about my own learning process, but you will find out what is the best for you. I also really recommend the course Learning to learn to get started, because it can give you great insight about the way you deal when directing yourself to learn (to address fear of unknown, procrastination, belittle yourself, stress, all that make the learning more difficult) and also you have to understand your personal [style of learning](http://edudemic.com/wp-content/uploads/2012/11/7-styles-of-learning.jpg).
+
+>I would propose to start with this course about learning to learn, have great insight about the learning process without the need to do an introduction to psychology :
+
+|Title|Source|Time|Git|
+|---|---|---|---|
+| **Learning to learn** | [Link](https://www.coursera.org/learn/learning-how-to-learn) | 1 month |[FOSU](apprendre-apprendre)|
 
 ###Phase 0, mathematics
 
@@ -35,11 +41,12 @@ I try to have a time in the day for each of this phases.
 
 ###Phase 1, computer science
 
->I would propose to start with this course about learning to learn, have great insight about the learning process without the need to do an introduction to psychology :
+>We start with different introduction to computer science, the main langage learned is Python, but will go in many introduction to other langages.
 
 |Title|Source|Time|Git|
 |---|---|---|---|
-| **Learning to learn** | [Link](https://www.coursera.org/learn/learning-how-to-learn) | The first month (In progress) |[Apprendre à apprendre](apprendre-apprendre)|
+|**CS50**|[Link](...)| 3 months (In progress)||
+
 
 ###Phase 2, programming
 
