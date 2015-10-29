@@ -55,7 +55,7 @@ def updateText(string1, string2):
 
 
 fenetre = Tk()
-fen.title('Fahrenheit/Celsius')
+fenetre.title('Fahrenheit/Celsius')
 
 can1 = Canvas(fenetre, bg = "blue", width = 200, height = 150)
 can2 = Canvas(fenetre, bg = "red", width = 200, height = 150)
