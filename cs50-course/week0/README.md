@@ -9,3 +9,12 @@
 ###BINARY
 
 -Although decimal which ha 10 digits, 0 to 9 is more familiar to humans, the computer work only with 2 digits, 0 and 1.
+
+
+####Boolean Expression
+
+False or True
+
+####Fonctions
+
+patterns repeating in a program can be simplified
