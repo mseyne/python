@@ -1,4 +1,5 @@
 # -*- coding:Utf-8 -*-
+'''balle qui tourne automatiquement dans le cadre'''
 
 from tkinter import *
 
