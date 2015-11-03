@@ -1,28 +1,48 @@
 # -*- coding:Utf-8 -*-
-"mouvement de la balle en zig zag, en cercle ou le long d'une courbe de Lissajous (voir ex 8_19)"
+"mouvement de la balle en zig zag, en circle ou le long d'une courbe de Lissajous (voir ex 8_19)"
+"peut être laisser des marques derrières"
 
 from tkinter import *
 from random import choice
+from math import cos, sin
 
 WIDTH, HEIGHT = 300, 300
 COLORS = ["blue", "red", "yellow", "green", "purple"]
 
 
 def move_square():
+	global x, y, dx, dy, move
+	x, y = 20, 20
+	dx, dy = 10, 0
+	start_coord(x, y)
+	move = "square"
 	start_move()
-	pass
 
 def move_zigzag():
+	global x, y, dx, dy, move
+	x, y = 150, 150
+	dx, dy = 10, 20
+	start_coord(x, y)
+	move = "zigzag"
 	start_move()
-	pass
 
-def move_cercle():
+def move_circle():
+	global x, y, dx, dy, move
+	x, y = 150, 250
+	start_coord(x, y)
+	move = "circle"
 	start_move()
-	pass
 
 def move_lissajous():
+	global x, y, dx, dy, move
+	x, y = 100, 250
+	start_coord(x, y)
+	move = "lissajous"
 	start_move()
-	pass
+
+def start_coord(x, y):
+	"coordonées de départ de la balle"
+	can1.coords(oval1, x+r, y+r, x-r, y-r)
 
 def start_move():
 	global flag
@@ -36,9 +56,90 @@ def stop_move():
 
 def repetition():
 	global flag
+	if move == "square":
+		set_square()
+	if move == "zigzag":
+		set_zigzag()
+	if move == "circle":
+		set_circle()
+	if move == "lissajous":
+		set_lissajous()
 	if flag == 1:
 		fenetre.after(50, repetition)
-		print("hello, world")
+		#debug, infinite loop
+
+def set_square():
+	"Square Movement !"
+	global x, y, dx, dy
+	# print("debug1", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+
+	x += dx
+	y += dy
+
+	if x > 280:
+		x, dx, dy = 280, 0, 10
+		# print("x>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if y > 280:
+		y, dx, dy = 280, -10, 0
+		# print("y>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if x < 20:
+		x, dx, dy = 20, 0, -10
+		# print("x<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if y < 20:
+		y, dx, dy = 20, 10, 0
+		# print("y<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+
+	# print("debug2", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	can1.coords(oval1, x+r, y+r, x-r, y-r)
+	
+
+
+def set_zigzag():
+	"Zig Zag Movement !"
+	global x, y, dx, dy
+	print("debug1", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+
+	x += dx
+	y += dy
+
+	if x > 280:
+		x = 280
+		if dy < 0:
+			dx, dy = -10, 20
+		if dy > 0:
+			dx, dy = -10, -20
+		print("x>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if y > 280:
+		y = 280
+		if dx < 0:
+			dx, dy = 20, -10
+		if dx > 0:
+			dx, dy = -20, -10
+		print("y>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if x < 20:
+		x = 20
+		if dy < 0:
+			dx, dy = 10, 20
+		if dy > 0:
+			dx, dy = 10, -20
+		print("x<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if y < 20:
+		y = 20
+		if dx < 0:
+			dx, dy = 20, 10
+		if dx > 0:
+			dx, dy = -20, 10
+		print("y<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+
+	print("debug2", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	can1.coords(oval1, x+r, y+r, x-r, y-r)
+
+def set_circle():
+	print("Circle Movement !")
+
+def set_lissajous():
+	print("Lissajous Movement !")
+
 
 def oval_color():
 	"changement de couleur aléatoire quand le mouvement change"
@@ -63,11 +164,13 @@ def center():
 
 def info():
 	fenetre.update()
-	print (fenetre.winfo_width())
-	print (fenetre.winfo_height())
-	print (fenetre.winfo_geometry())
+	# print (fenetre.winfo_width())
+	# print (fenetre.winfo_height())
+	# print (fenetre.winfo_geometry())
 
-x, y, r = 100, 100, 10
+x, y, r = 100, 100, 10 #données circle
+dx, dy = 10, 0 #déplacement
+move = None
 flag = 0
 ang = 0.1
 color = COLORS[1]
@@ -85,7 +188,7 @@ boutSQ = bouton(fenetre, "Square", move_square)
 boutSQ.pack()
 boutZZ = bouton(fenetre, "Zig Zag", move_zigzag)
 boutZZ.pack()
-boutCL = bouton(fenetre, "Cercle", move_cercle)
+boutCL = bouton(fenetre, "Circle", move_circle)
 boutCL.pack()
 boutLJ = bouton(fenetre, "Lissajous", move_lissajous)
 boutLJ.pack()
