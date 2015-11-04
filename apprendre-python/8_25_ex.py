@@ -3,7 +3,7 @@
 "peut être laisser des marques derrières"
 
 from tkinter import *
-from random import choice
+from random import choice, randint
 from math import cos, sin
 
 WIDTH, HEIGHT = 300, 300
@@ -21,21 +21,21 @@ def move_square():
 def move_zigzag():
 	global x, y, dx, dy, move
 	x, y = 150, 150
-	dx, dy = 10, 20
+	dx, dy = randint(-10, 10), randint(-10, 10)
 	start_coord(x, y)
 	move = "zigzag"
 	start_move()
 
 def move_circle():
-	global x, y, dx, dy, move
-	x, y = 150, 250
+	global x, y, dx, dy, move, ang
+	ang, x, y = .1, 150., 250.
 	start_coord(x, y)
 	move = "circle"
 	start_move()
 
 def move_lissajous():
-	global x, y, dx, dy, move
-	x, y = 100, 250
+	global x, y, dx, dy, move, ang
+	ang, x, y = .1, 198.68, 253.17
 	start_coord(x, y)
 	move = "lissajous"
 	start_move()
@@ -71,25 +71,19 @@ def repetition():
 def set_square():
 	"Square Movement !"
 	global x, y, dx, dy
-	# print("debug1", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 
 	x += dx
 	y += dy
 
 	if x > 280:
 		x, dx, dy = 280, 0, 10
-		# print("x>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 	if y > 280:
 		y, dx, dy = 280, -10, 0
-		# print("y>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 	if x < 20:
 		x, dx, dy = 20, 0, -10
-		# print("x<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 	if y < 20:
 		y, dx, dy = 20, 10, 0
-		# print("y<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 
-	# print("debug2", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 	can1.coords(oval1, x+r, y+r, x-r, y-r)
 	
 
@@ -97,48 +91,59 @@ def set_square():
 def set_zigzag():
 	"Zig Zag Movement !"
 	global x, y, dx, dy
-	print("debug1", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 
 	x += dx
 	y += dy
 
-	if x > 280:
-		x = 280
-		if dy < 0:
-			dx, dy = -10, 20
-		if dy > 0:
-			dx, dy = -10, -20
-		print("x>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
-	if y > 280:
-		y = 280
-		if dx < 0:
-			dx, dy = 20, -10
-		if dx > 0:
-			dx, dy = -20, -10
-		print("y>280", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
-	if x < 20:
-		x = 20
-		if dy < 0:
-			dx, dy = 10, 20
-		if dy > 0:
-			dx, dy = 10, -20
-		print("x<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
-	if y < 20:
-		y = 20
-		if dx < 0:
-			dx, dy = 20, 10
-		if dx > 0:
-			dx, dy = -20, 10
-		print("y<30", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
+	if x > 290:
+		x = 290
+		if y <= 150:
+			dx, dy = -2, 7
+		if y > 150:
+			dx, dy = -2, -7
+	if y > 290:
+		y = 290
+		if x <= 150:
+			dx, dy = -5, -7
+		if x > 150:
+			dx, dy = 5, -7
+	if x < 10:
+		x = 10
+		if y <= 150:
+			dx, dy = 5, -7
+		if y > 150:
+			dx, dy = 5, 7
+	if y < 10:
+		y = 10
+		if x <= 150:
+			dx, dy = 5, 7
+		if x > 150:
+			dx, dy = -5, 7
 
-	print("debug2", "x:",x, "y:",y,"dx:", dx,"dy:", dy)
 	can1.coords(oval1, x+r, y+r, x-r, y-r)
 
 def set_circle():
-	print("Circle Movement !")
+	"Circle Movement !"
+	global x, y, ang
+
+	ang += 0.1
+	x, y = sin(ang), cos(ang)
+	x, y = x*125+150, y*125+150
+
+	can1.coords(oval1, x+r, y+r, x-r, y-r)
 
 def set_lissajous():
-	print("Lissajous Movement !")
+	"Lissajous Movement !"
+	global x, y, ang
+	
+	xp, yp, = x, y
+
+	ang += 0.1
+	x, y = sin(2*ang), cos(3*ang)
+	x, y = x*125+150, y*125+150
+
+	can1.coords(oval1, x+r, y+r, x-r, y-r)
+	can1.create_line(xp, yp, x, y, fill =choice(COLORS)) 
 
 
 def oval_color():
