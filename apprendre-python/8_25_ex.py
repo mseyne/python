@@ -10,7 +10,17 @@ WIDTH, HEIGHT = 300, 300
 COLORS = ["blue", "red", "yellow", "green", "purple"]
 
 
+def move_fall():
+	"mouvement d'une balle qui tombe et qui rebondit"
+	global x, y, dx, dy, move
+	x, y = 150, 10
+	dx, dy = 0, .1
+	start_coord(x, y)
+	move = "fall"
+	start_move()
+
 def move_square():
+	"mouvement d'une balle en suivant les angles du canva"
 	global x, y, dx, dy, move
 	x, y = 20, 20
 	dx, dy = 10, 0
@@ -19,6 +29,7 @@ def move_square():
 	start_move()
 
 def move_zigzag():
+	"rebondit contre les côtés" #à améliorer
 	global x, y, dx, dy, move
 	x, y = 150, 150
 	dx, dy = randint(-10, 10), randint(-10, 10)
@@ -27,6 +38,7 @@ def move_zigzag():
 	start_move()
 
 def move_circle():
+	"circule le long d'un cercle"
 	global x, y, dx, dy, move, ang
 	ang, x, y = .1, 150., 250.
 	start_coord(x, y)
@@ -34,6 +46,7 @@ def move_circle():
 	start_move()
 
 def move_lissajous():
+	"circule le long d'une courbe de lissajous"
 	global x, y, dx, dy, move, ang
 	ang, x, y = .1, 198.68, 253.17
 	start_coord(x, y)
@@ -64,9 +77,43 @@ def repetition():
 		set_circle()
 	if move == "lissajous":
 		set_lissajous()
+	if move == "fall":
+		set_fall()
 	if flag == 1:
 		fenetre.after(50, repetition)
 		#debug, infinite loop
+
+def set_fall():
+	"Fall/Bouncing Movement"
+	global y, dy
+
+	debug = 0
+	vitesse = 0.2
+	distance = 280
+	print(distance, vitesse)
+
+	while distance >= 0:
+		if y >= distance:
+			vitesse = 0.2
+			dy = 10
+			y += dy
+			can1.coords(oval1, x+r, y+r, x-r, y-r)
+		if y < distance:
+			vitesse = vitesse * 2
+			dy += vitesse
+			y += dy
+			can1.coords(oval1, x+r, y+r, x-r, y-r)
+		if y >= 280:
+			vitesse = 0
+			dy = -10
+			y += dy
+			can1.coords(oval1, x+r, y+r, x-r, y-r)
+			distance = 2 * distance / 3
+
+		debug += 1
+		print("loop :", debug)
+
+	flag = 0
 
 def set_square():
 	"Square Movement !"
@@ -85,8 +132,6 @@ def set_square():
 		y, dx, dy = 20, 10, 0
 
 	can1.coords(oval1, x+r, y+r, x-r, y-r)
-	
-
 
 def set_zigzag():
 	"Zig Zag Movement !"
@@ -197,6 +242,8 @@ boutCL = bouton(fenetre, "Circle", move_circle)
 boutCL.pack()
 boutLJ = bouton(fenetre, "Lissajous", move_lissajous)
 boutLJ.pack()
+boutFB = bouton(fenetre, "Fall", move_fall)
+boutFB.pack()
 boutSP = bouton(fenetre, "Arrêter", stop_move)
 boutSP.pack()
 boutQT = bouton(fenetre, "Quitter", fenetre.quit)
