@@ -4,29 +4,76 @@
 from tkinter import *
 import sys
 
-BINARY = [1]
+DECIMAL = [1]
+BINARY = {1:0}
 
 def createBinaryList():
 	"I used it to find the BINARY list"
 	global BINARY
 	b = 2
 	c = 0
-	while c < 100:
-		BINARY.append(b)
+	while c < 30:
+		DECIMAL.append(b)
+		BINARY[b] = 0
 		c += 1
 		b = b + b
 
-def convertToBinary():
-	dec = ent1.get()
-	can1.itemconfig(text1, text=dec)
+	print(DECIMAL, BINARY)
 
-	#fonction to check if the number is composed only of number
+def checkDecimal():
+	"vérifie si il y a bien une valeur décimal entrée"
+	nb = ent1.get()
+	c = 0
+	for i in nb:
+		if i in list('1234567890'):
+			c += 1
+	if len(nb) == c:
+		convertToBinary(int(nb))
+	else:
+		can1.itemconfig(text1, text="Vous n'avez pas choisi\n un nombre décimal.")
 
-def convertToDecimal():
+def checkBinary():
+	"vérifie s'il y a bien une valeur binaire entrée"
+	nb = ent1.get()
+	c = 0
+	for i in nb:
+		if i in list('10'):
+			c += 1
+	if len(nb) == c:
+		convertToDecimal(int(nb))
+	else:
+		can1.itemconfig(text1, text="Vous n'avez pas choisi\n un nombre binaire.")
+
+def convertToBinary(nombre):
+	value = nombre
+
+	while value > 0:
+		for i in reversed(DECIMAL):
+			if i <= value:
+				BINARY[i] = 1
+				value = value%i
+
+	showBinary()
+
+def cleanBinary():
+	"remet le nombre binaire à zéro"
+	pass
+
+def showBinary():
+	"affiche le nombre binaire"
+	dec = []
+	bin = []
+	for i in DECIMAL:
+		dec.append(i)
+		bin.append(BINARY[i])
+	c = 0
+	while c < len(dec):
+		print(dec[c],":", bin[c])
+		c += 1
+
+def convertToDecimal(nb):
 	bin = ent1.get()
 	can1.itemconfig(text1, text=bin)
-
-	#fonction to check if the number is binary (composed of 0 and 1)
 
 def exit(event):
 	sys.exit()
@@ -43,15 +90,22 @@ def entree():
 def boutons():
 	bouQ = Button(fenetre, command=fenetre.quit, text="Q")
 	bouQ.grid(row=2, column=4, padx=5, pady=5)
-	bouD = Button(fenetre, command=convertToDecimal, text="To decimal")
+	bouD = Button(fenetre, command=checkBinary, text="To decimal")
 	bouD.grid(row=2, column=2)
-	bouB = Button(fenetre, command=convertToBinary, text="To binary")
+	bouB = Button(fenetre, command=checkDecimal, text="To binary")
 	bouB.grid(row=2, column=3)
 
 def grid():
 	can1.grid(row=1, column=1, columnspan=4, pady=10)
 	ent1.grid(row=2, column=1, sticky="w", padx=5, pady=5)
 
+def center():
+	fenetre.update_idletasks()
+	width = fenetre.winfo_width()
+	height = fenetre.winfo_height()
+	x = round(fenetre.winfo_screenwidth() / 2 - width / 2)
+	y = round(fenetre.winfo_screenheight() / 2 - height / 2)
+	fenetre.geometry("{}x{}+{}+{}".format(width, height, x, y))
 
 if __name__ == '__main__':
 	createBinaryList()
@@ -66,5 +120,5 @@ if __name__ == '__main__':
 	can1 = canvas()
 	text1 = texte()
 	grid()
-
+	center()
 	fenetre.mainloop()
