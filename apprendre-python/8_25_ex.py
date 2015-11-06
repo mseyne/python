@@ -87,31 +87,39 @@ def set_fall():
 	"Fall/Bouncing Movement"
 	global y, dy
 
-	debug = 0
-	vitesse = 0.2
-	distance = 280
-	print(distance, vitesse)
+	v = 0.2
+	distanceA = 280
+	distanceB = 280
+	flag = ""
 
-	while distance >= 0:
-		if y >= distance:
-			vitesse = 0.2
-			dy = 10
-			y += dy
-			can1.coords(oval1, x+r, y+r, x-r, y-r)
-		if y < distance:
-			vitesse = vitesse * 2
-			dy += vitesse
-			y += dy
-			can1.coords(oval1, x+r, y+r, x-r, y-r)
-		if y >= 280:
-			vitesse = 0
-			dy = -10
-			y += dy
-			can1.coords(oval1, x+r, y+r, x-r, y-r)
-			distance = 2 * distance / 3
+	while distanceB >= 0:
 
-		debug += 1
-		print("loop :", debug)
+		#changement de direction une fois arrivée en haut
+		if y <= distanceB:
+			dy += v
+			flag = "down"
+
+		#changement de direction une fois arrivée en bas
+		if y >= distanceA:
+			dy += -v
+			distanceB = 2 * distanceB / 3
+			flag = "up"
+
+		#vitesse montante
+		if flag == "up":
+			dy -= 0.2
+			y += dy
+			can1.coords(oval1, x+r, y+r, x-r, y-r)
+		
+		#vitesse descendante
+		if flag == "down":
+			dy += 0.2
+			y += dy
+			can1.coords(oval1, x+r, y+r, x-r, y-r)
+
+		print("flag:", flag, "dA:", distanceA, "dB", distanceB)
+		print("y:", y, "dy:", dy)
+		input()
 
 	flag = 0
 
