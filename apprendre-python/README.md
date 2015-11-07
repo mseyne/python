@@ -646,3 +646,6 @@ Il est possible de définir par défault un argument avec une valeur, si la fonc
 Bonjour Monsieur Michael
 >>>politesse("Laura", "Madame")
 Bonjour Madame Laura
+
+
+(apprendre gui, voir dossier tkinter)
