@@ -7,5 +7,5 @@
 
 ####weeks :
 
-* [week O](week0), binary converter, ascii table
-* [week 1](week1)
+* [week O](week0), project : binary converter in python/tkinter, other idea : ascii table
+* [week 1](week1), 

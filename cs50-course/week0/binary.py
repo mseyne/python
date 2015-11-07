@@ -18,8 +18,6 @@ def createBinaryList():
 		c += 1
 		b = b + b
 
-	print(DECIMAL, BINARY)
-
 def checkDecimal():
 	"vérifie si il y a bien une valeur décimal entrée"
 	nb = ent1.get()
@@ -40,40 +38,45 @@ def checkBinary():
 		if i in list('10'):
 			c += 1
 	if len(nb) == c:
-		convertToDecimal(int(nb))
+		convertToDecimal(nb)
 	else:
 		can1.itemconfig(text1, text="Vous n'avez pas choisi\n un nombre binaire.")
 
 def convertToBinary(nombre):
-	value = nombre
+	"conversion d'un nombre décimal en nombre binaire base 2"
+	decNb = nombre
+	binNb = ""
+	flag = 0 #j'utilise ce drapeau pour savoir à partir de quand j'enregistre les bits dans binNb
 
-	while value > 0:
+	while decNb > 0:
 		for i in reversed(DECIMAL):
-			if i <= value:
+			if i <= decNb:
+				flag = 1
 				BINARY[i] = 1
-				value = value%i
+				decNb = decNb%i
+			if flag == 1:
+				binNb = str(BINARY[i]) + binNb
 
-	showBinary()
+	can1.itemconfig(text1, text="La valeur binaire de {} est\n{}".format(nombre, binNb))
+	cleanBinary()
 
 def cleanBinary():
 	"remet le nombre binaire à zéro"
-	pass
-
-def showBinary():
-	"affiche le nombre binaire"
-	dec = []
-	bin = []
 	for i in DECIMAL:
-		dec.append(i)
-		bin.append(BINARY[i])
-	c = 0
-	while c < len(dec):
-		print(dec[c],":", bin[c])
-		c += 1
+		BINARY[i] = 0
 
-def convertToDecimal(nb):
-	bin = ent1.get()
-	can1.itemconfig(text1, text=bin)
+def convertToDecimal(nombre):
+	"conversion d'un nombre binaire en nombre décimal"
+	nbBin = nombre
+	nbDec = 0
+	c = 1
+
+	for i in nbBin:
+		if i == "1":
+			nbDec += c
+		c = c * 2
+
+	can1.itemconfig(text1, text="La valeur décimal de {} est\n{}".format(nombre, nbDec))
 
 def exit(event):
 	sys.exit()
