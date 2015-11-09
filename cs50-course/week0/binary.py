@@ -57,6 +57,8 @@ def convertToBinary(nombre):
 			if flag == 1:
 				binNb = str(BINARY[i]) + binNb
 
+	binNb = binNb[::-1] #reverse binary number
+
 	can1.itemconfig(text1, text="La valeur binaire de {} est\n{}".format(nombre, binNb))
 	cleanBinary()
 
@@ -67,7 +69,7 @@ def cleanBinary():
 
 def convertToDecimal(nombre):
 	"conversion d'un nombre binaire en nombre décimal"
-	nbBin = nombre
+	nbBin = nombre[::-1] #reverse binary number
 	nbDec = 0
 	c = 1
 
@@ -102,7 +104,20 @@ def grid():
 	can1.grid(row=1, column=1, columnspan=4, pady=10)
 	ent1.grid(row=2, column=1, sticky="w", padx=5, pady=5)
 
+def redirection(event):
+	"redirige un nombre validé directement par la touche Return"
+	nb = ent1.get()	
+	c = 0
+	for i in nb:
+		if i in list('10'):
+			c += 1
+	if len(nb) == c:
+		convertToDecimal(nb)
+	else:
+		checkDecimal()
+
 def center():
+	"centre la fenêtre au milieu de l'écran"
 	fenetre.update_idletasks()
 	width = fenetre.winfo_width()
 	height = fenetre.winfo_height()
@@ -120,6 +135,7 @@ if __name__ == '__main__':
 
 	boutons()
 	ent1 = entree()
+	ent1.bind('<Return>', redirection)
 	can1 = canvas()
 	text1 = texte()
 	grid()
