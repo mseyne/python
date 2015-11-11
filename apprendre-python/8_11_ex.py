@@ -1,4 +1,5 @@
 # -*- coding:Utf-8 -*-
+"""blue dots avec le clique de la souris"""
 
 from tkinter import *
 
