@@ -10,22 +10,56 @@
 """
 
 from tkinter import *
+from random import randint
 import sys
 
 #variables
 WIDTH, HEIGHT = 400, 400
-X, Y, R = 20, 50, 10 
 COLOR = ["blue", "red", "yellow", "green", "purple"]
+x, y, r = 20, 50, 10 
+v = 10
+
+score = 0
+flag = 0
 
 #functions
 
 def newGame():
 	"reset score and ball speed"
-	pass
+	global score, flag, v, x, y
+	score = 0
+	flag = 1
+	v = 10
+	x, y = 200, 200
+	moveBall()
+
+def stopGame():
+	global flag
+	flag = 0
 
 def moveBall():
 	"ball movement"
-	pass
+	global x, y, v
+
+	if x >
+	x = x + v
+	
+	if 
+	canBall.coords(ball, x+r, y+r, x-r, y-r)
+
+	if flag == 1:
+		root.after(50, moveBall)
+
+def clickBall(event):
+	"ball clicked by the player"
+	global score
+	color = COLOR[randint(0, len(COLOR)-1)]
+	canBall.itemconfig(ball, fill=color)
+	canScore.itemconfig(text, text="The score is : {}".format(score))
+	score += 10
+
+	if score == 100:
+		flag = 0
 
 def createCanvas(w, h, c):
 	"Create the differents widgets"
@@ -39,9 +73,11 @@ def setupGrid():
 	canScore.grid(row=2, column=1, columnspan=3)
 
 def setButtons():
-	bStart = Button(text="Start", command=moveBall)
+	bStart = Button(text="New Game", command=newGame)
+	bStop = Button(text="Stop", command=stopGame)
 	bQuit = Button(text="Q", command=root.quit)
 	bStart.grid(row=3, column=1)
+	bStop.grid(row=3, column=2)
 	bQuit.grid(row=3, column=3, pady=5)
 
 def exitProgram(event):
@@ -64,9 +100,10 @@ if __name__ == "__main__":
 	root.bind("<Escape>", exitProgram)
 
 	canBall = createCanvas(WIDTH, HEIGHT, "light grey")
-	ball = canBall.create_oval(X+R, Y+R, X-R, Y-R, fill=COLOR[0])
+	ball = canBall.create_oval(x+r, y+r, x-r, y-r, fill=COLOR[0], width=2)
 	canScore = createCanvas(400, 20, "light grey")
-	txtScore = canScore.create_text(200, 10, text="Score")
+	text = canScore.create_text(200, 10, text="Score")
+	canBall.tag_bind(ball, "<Button-1>", clickBall)
 
 	setupGrid()
 	setButtons()
