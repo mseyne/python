@@ -1,36 +1,43 @@
 # -*- coding:Utf-8 -*-
 "click the ball game"
 
-"""
--déplacement aléatoire de la balle dans le Canvas
--zigzag et rebond aléatoires
--10 secondes compteur avant que le jeu ne se termine
--changement de couleur lorsque la balle est cliqué et la vitesse de la balle augmente
--ajoute un point au score et remet le compter à 10 secondes
-"""
-
+#libraries
 from tkinter import *
-from random import randint
+from random import randint, choice
 import sys
+import tkinter.messagebox
 
 #variables
 WIDTH, HEIGHT = 400, 400
 COLOR = ["blue", "red", "yellow", "green", "purple"]
+STEPS = [-20, -15, -10, 10, 15, 20]
+STEPSP = [10, 15, 20]
+STEPSN = [-20, -15, -10]
+
 x, y, r = 20, 50, 10 
-v = 10
+dx, dy = 0, 0 #step x, step y
+vitesse = 400
 
 score = 0
 flag = 0
 
 #functions
+def askNG():
+	answer = tkinter.messagebox.askquestion("Play Again ?", "Do you want to play again ?")
+	if answer == "yes":
+		newGame()
+	else:
+		exitProgram(True)
 
 def newGame():
 	"reset score and ball speed"
-	global score, flag, v, x, y
+	global score, flag, dx, dy, x, y, vitesse
 	score = 0
 	flag = 1
-	v = 10
+	dx, dy = choice(STEPS), choice(STEPS)
 	x, y = 200, 200
+	vitesse = 400
+	canScore.itemconfig(text, text="C'est parti ! Essayer de cliquer sur la balle !")
 	moveBall()
 
 def stopGame():
@@ -39,27 +46,50 @@ def stopGame():
 
 def moveBall():
 	"ball movement"
-	global x, y, v
+	global x, y, dx, dy
 
-	if x >
-	x = x + v
+	if x >= 400:
+		x = 400
+		dx = choice(STEPSN)
+		dy = choice(STEPS)
 	
-	if 
+	if x <= 0:
+		x = 0
+		dx = choice(STEPSP)
+		dy = choice(STEPS)
+
+	if y >= 400:
+		y = 400
+		dy = choice(STEPSN)
+		dx = choice(STEPS)
+
+	if y <= 0:
+		y = 0
+		dy = choice(STEPSP)
+		dx = choice(STEPS)
+
+	x, y = x + dx, y + dy
 	canBall.coords(ball, x+r, y+r, x-r, y-r)
 
 	if flag == 1:
-		root.after(50, moveBall)
+		root.after(vitesse, moveBall)
+	if flag == 0:
+		askNG()
 
 def clickBall(event):
 	"ball clicked by the player"
-	global score
-	color = COLOR[randint(0, len(COLOR)-1)]
-	canBall.itemconfig(ball, fill=color)
-	canScore.itemconfig(text, text="The score is : {}".format(score))
-	score += 10
+	global score, flag, vitesse
+	if flag == 1:
+		color = COLOR[randint(0, len(COLOR)-1)] # I could use simply choice(COLOR)
+		canBall.itemconfig(ball, fill=color)
+		score += 10
+		canScore.itemconfig(text, text="The score is : {}".format(score))
+		vitesse -= 35
+		if score == 100:
+			flag = 0
+	else:
+		pass
 
-	if score == 100:
-		flag = 0
 
 def createCanvas(w, h, c):
 	"Create the differents widgets"
@@ -93,7 +123,6 @@ def centerWindow():
 	root.geometry("{}x{}+{}+{}".format(width, height, x, y))
 
 #program
-
 if __name__ == "__main__":
 	root = Tk()
 	root.title("Click the ball game")
