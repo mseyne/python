@@ -14,7 +14,7 @@ STEPS = [-20, -15, -10, 10, 15, 20]
 STEPSP = [10, 15, 20]
 STEPSN = [-20, -15, -10]
 
-x, y, r = 20, 50, 10 
+x, y, r = 20, 50, 120 
 dx, dy = 0, 0 #step x, step y
 vitesse = 400
 
@@ -31,13 +31,14 @@ def askNG():
 
 def newGame():
 	"reset score and ball speed"
-	global score, flag, dx, dy, x, y, vitesse
+	global score, flag, dx, dy, x, y, vitesse, r
 	score = 0
 	flag = 1
 	dx, dy = choice(STEPS), choice(STEPS)
 	x, y = 200, 200
 	vitesse = 400
-	canScore.itemconfig(text, text="C'est parti ! Essayer de cliquer sur la balle !")
+	r = 120
+	canScore.itemconfig(text, text="Let's start ! Try to click the ball !")
 	moveBall()
 
 def stopGame():
@@ -78,13 +79,14 @@ def moveBall():
 
 def clickBall(event):
 	"ball clicked by the player"
-	global score, flag, vitesse
+	global score, flag, vitesse, r
 	if flag == 1:
 		color = COLOR[randint(0, len(COLOR)-1)] # I could use simply choice(COLOR)
 		canBall.itemconfig(ball, fill=color)
 		score += 10
 		canScore.itemconfig(text, text="The score is : {}".format(score))
 		vitesse -= 35
+		r -= 12
 		if score == 100:
 			flag = 0
 	else:
