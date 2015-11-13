@@ -19,6 +19,8 @@ COLORS = ['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'ol
     'light blue', 'powder blue', 'pale turquoise']
 
 #functions
+def newGame():
+	pass
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
@@ -52,21 +54,33 @@ def setWindow():
 def setGrid():
 	"used to set the game grid"
 	gameScreen.grid(row=1, column=1, columnspan=3)
+	textScreen.grid(row=2, column=1, columnspan=3)
+	butStart.grid(row=3, column=1)
+	butQuit.grid(row=3, column=3, pady=5)
 
 def exitProgram(event=1):
 	exit()
 
-#program
+def createButton(text, command):
+	return Button(root, text=text, command=command)
 
+
+#program
 if __name__ == "__main__":
 	root = Tk()
 
 	# main screen of the game
 	gameScreen = createCanva(600, 600)
 
+	# text screen of the game
+	textScreen = createCanva(600, 50)
+
 	# create the balls of the game
 	gameBalls = createBalls(10)
 
+	# define the game button
+	butStart = createButton("Start a new game", newGame)
+	butQuit = createButton("Quitter", root.quit)
 
 	setGrid()
 	setWindow()
