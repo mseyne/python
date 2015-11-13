@@ -15,6 +15,7 @@ def setWindow():
 	x = (root.winfo_screenwidth()//2) - width//2
 	y = (root.winfo_screenheight()//2) - height//2
 	root.geometry("{}x{}+{}+{}".format(width, height, x, y))
+	root.resizable(0,0)
 
 def setGrid(ph):
 	row = 1
@@ -23,7 +24,7 @@ def setGrid(ph):
 	for i in ph:
 		i.grid(row=row, column=column, sticky="w"+"e"+"n"+"s", padx = 5, pady = 5)
 		column += 1
-		if column%10 == 0:
+		if column%35 == 0:
 			row +=1
 			column = 1
 	
@@ -31,18 +32,23 @@ def setGrid(ph):
 def exit(event=1):
 	sys.exit()
 
-def getFrames():
+def getCanvas():
 	nb = 0
-	PlaceHolder = []
-	while nb < 20:
-		frame = Frame(root, relief="ridge", bd=2, width=50, height=50)
-		PlaceHolder.append(frame)
+	placeHolder = []
+	while nb < 600:
+		canva = Canvas(root, relief="ridge", bd=2, width=30, height=30)
+		placeHolder.append(canva)
 		nb += 1
 
-	return PlaceHolder
+	return placeHolder
 
-def getLabels():
-	pass
+def getTexts(can):
+	nb = 0
+	charList = []
+
+	for i in can:
+		i.create_text(15, 15, text=chr(nb))
+		nb += 1
 
 
 if __name__ == '__main__':
@@ -50,8 +56,8 @@ if __name__ == '__main__':
 	root.title(TITLE)
 	root.bind("<Escape>", exit)
 
-	phList = getFrames() #place holder list
-	chList = getLabels() #unicode character list
+	phList = getCanvas() #place holder list
+	getTexts(phList) #unicode character list
 	setGrid(phList)
 	setWindow()
 	root.mainloop()

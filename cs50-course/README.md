@@ -8,5 +8,5 @@
 ####weeks :
 
 * [week O](week0), project : binary converter in python/tkinter, ascii/unicode table
-* [week 1](week1), project : credit card checker (luhn algorithm), mario
+* [week 1](week1), project : credit card checker (luhn algorithm), mario pyramide
 * [week 2](week2), project : caesar cipher coder/decoder
