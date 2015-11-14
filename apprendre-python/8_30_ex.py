@@ -6,8 +6,7 @@ from tkinter import *
 from sys import exit
 from random import choice, randint
 
-#variables
-
+#datas
 TITLE = "Bouncing Balls !"
 COLORS = ['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'old lace',
     'linen', 'antique white', 'papaya whip', 'blanched almond', 'bisque', 'peach puff',
@@ -18,9 +17,32 @@ COLORS = ['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'ol
     'dodger blue', 'deep sky blue', 'sky blue', 'light sky blue', 'steel blue', 'light steel blue',
     'light blue', 'powder blue', 'pale turquoise']
 
+#global variables
+gameBalls = {}
+
+flag = 0
+dx, dy, r = 0, 0, 10
+
+
 #functions
 def newGame():
-	pass
+	"clean the gameScreen and start a new game"
+	global gameBalls
+	gameScreen.delete('all')
+	for i in gameBalls:
+		gameScreen.delete(i)
+
+	# create the balls of the game
+	gameBalls = createBalls(10)
+	print(gameBalls)
+
+
+def moveBalls():
+	"ball movements"
+	
+	for i in gameBalls:
+		print(i, ":", gameBalls[i], ":", gameScreen.coords(gameBalls[i]))
+
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
@@ -28,14 +50,14 @@ def createCanva(w, h, c="light grey"):
 def createBalls(ballNumber):
 	"return a list of oval objects placed in gameScreen"
 	b = 1
-	r = 10
-	ballList = []
+	ballList = {}
 
 	while b <= ballNumber:
 		color = choice(COLORS)
 		x = randint(20, 580)
 		y = randint(20, 580)
 		ball = gameScreen.create_oval(x+r, y+r, x-r, y-r, fill=color)
+		ballList["ball"+ str(b)] = ball
 		b += 1
 
 	return ballList
@@ -55,7 +77,9 @@ def setGrid():
 	"used to set the game grid"
 	gameScreen.grid(row=1, column=1, columnspan=3)
 	textScreen.grid(row=2, column=1, columnspan=3)
-	butStart.grid(row=3, column=1)
+	butNew.grid(row=3, column=1)
+	butStart.grid(row=3, column=2, padx=5, sticky="w")
+	butStop.grid(row=3, column=2, sticky="e")
 	butQuit.grid(row=3, column=3, pady=5)
 
 def exitProgram(event=1):
@@ -63,6 +87,18 @@ def exitProgram(event=1):
 
 def createButton(text, command):
 	return Button(root, text=text, command=command)
+
+def startMoving():
+	"initiate the balls movement"
+	global flag
+	flag = 1
+	moveBalls()
+
+def stopMoving():
+	"stop the balls movement"
+	global flag
+	if flag == 1:
+		flag = 0
 
 
 #program
@@ -75,12 +111,12 @@ if __name__ == "__main__":
 	# text screen of the game
 	textScreen = createCanva(600, 50)
 
-	# create the balls of the game
-	gameBalls = createBalls(10)
 
 	# define the game button
-	butStart = createButton("Start a new game", newGame)
-	butQuit = createButton("Quitter", root.quit)
+	butNew = createButton("Start a new game", newGame)
+	butStart = createButton("Start", startMoving)
+	butStop = createButton("Stop", stopMoving)
+	butQuit = createButton("Quit", root.quit)
 
 	setGrid()
 	setWindow()
