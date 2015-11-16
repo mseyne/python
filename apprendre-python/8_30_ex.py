@@ -19,9 +19,12 @@ COLORS = ['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'ol
 
 #global variables
 gameBalls = {}
-
+gameBallsPrevPositions = {}
+gameBallsNewPositions = {}
+gameBallsMovements = {}
 flag = 0
-dx, dy, r = 0, 0, 10
+nbBalls = 10
+r = 10
 
 
 #functions
@@ -33,16 +36,17 @@ def newGame():
 		gameScreen.delete(i)
 
 	# create the balls of the game
-	gameBalls = createBalls(10)
-	print(gameBalls)
+	createBalls(nbBalls)
 
 
 def moveBalls():
 	"ball movements"
 	
+	# update previous position of the balls
 	for i in gameBalls:
-		print(i, ":", gameBalls[i], ":", gameScreen.coords(gameBalls[i]))
+		gameBallsPrevPositions[i] = gameScreen.coords(gameBalls[i])
 
+	print(gameBalls["ball1"], gameBallsPrevPositions["ball1"], gameBallsNewPositions["ball1"])
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
@@ -50,17 +54,17 @@ def createCanva(w, h, c="light grey"):
 def createBalls(ballNumber):
 	"return a list of oval objects placed in gameScreen"
 	b = 1
-	ballList = {}
 
 	while b <= ballNumber:
 		color = choice(COLORS)
 		x = randint(20, 580)
 		y = randint(20, 580)
 		ball = gameScreen.create_oval(x+r, y+r, x-r, y-r, fill=color)
-		ballList["ball"+ str(b)] = ball
+		gameBalls["ball"+ str(b)] = ball
 		b += 1
 
-	return ballList
+	for i in gameBalls:
+		gameBallsNewPositions[i] = gameScreen.coords(gameBalls[i])
 
 def setWindow():
 	"used to set the window, title, center"
