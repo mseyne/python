@@ -22,7 +22,7 @@ gameBalls = {}
 gameBallsPrevPositions = {}
 gameBallsNewPositions = {}
 gameBallsMovements = {}
-flag = 0
+flagMove, flagBalls = 0, 0
 nbBalls = 10
 r = 10
 
@@ -30,7 +30,9 @@ r = 10
 #functions
 def newGame():
 	"clean the gameScreen and start a new game"
-	global gameBalls
+	global gameBalls, flagBalls, flagMove
+	flagMove = 0
+	flagBalls = 1
 	gameScreen.delete('all')
 	for i in gameBalls:
 		gameScreen.delete(i)
@@ -38,15 +40,40 @@ def newGame():
 	# create the balls of the game
 	createBalls(nbBalls)
 
+	# set the first balls movements
+	for i in gameBalls:
+		gameBallsMovements[i] = [randint(-10, 10), randint(-10, 10)]
+	print('movement of each balls :', gameBallsMovements, gameBallsMovements["ball1"][0], gameBallsMovements["ball4"][1])
+
+
 
 def moveBalls():
 	"ball movements"
 	
-	# update previous position of the balls
+	# set previous positions of the balls befor new move
 	for i in gameBalls:
 		gameBallsPrevPositions[i] = gameScreen.coords(gameBalls[i])
 
-	print(gameBalls["ball1"], gameBallsPrevPositions["ball1"], gameBallsNewPositions["ball1"])
+	print("----\n", gameBalls, '\n', gameBallsPrevPositions, '\n', gameBallsNewPositions, "\n----\n")
+
+	# move each ball in a random direction
+	for i in gameBalls:
+		coords = gameScreen.coords(gameBalls[i])
+		x, y = coords[0]+10, coords[1]+10 #coordinates of the current ball
+		print(i, coords, x, y)
+		x = x + gameBallsMovements[i][0] # set the new x position
+		y = y + gameBallsMovements[i][1] # set the new y position
+		gameScreen.coords(gameBalls[i], x+10, y+10, x-10, y-10) #set the new position in canva
+		print(i, ": new coords:",gameScreen.coords(gameBalls[i]), "x:",x,"y:", y)
+		gameBallsNewPositions[i] = gameScreen.coords(gameBalls[i]) #set the new position in gameBallsNewPositions
+
+	print(list(gameBalls.key()))
+	#print("EXAMPLE:", gameBalls[], gameBallsPrevPositions[gameBalls[0]], gameBallsNewPositions[gameBalls[0]]) #example with one ball
+	
+	input('DEBUG MODE >>>')
+
+	if flagMove == 1:
+		root.after(50, moveBalls)
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
@@ -94,15 +121,16 @@ def createButton(text, command):
 
 def startMoving():
 	"initiate the balls movement"
-	global flag
-	flag = 1
-	moveBalls()
+	global flagMove
+	flagMove = 1
+	if flagBalls == 1: #check if the balls are created before to start move function
+		moveBalls()
 
 def stopMoving():
 	"stop the balls movement"
-	global flag
-	if flag == 1:
-		flag = 0
+	global flagMove
+	if flagMove == 1:
+		flagMove = 0
 
 
 #program
