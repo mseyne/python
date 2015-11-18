@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+
+"""
+-negative shift don't work, I have to make accept the sign -
+"""
+
 #libraries
 import sys
 import os
@@ -21,9 +26,9 @@ INFO = [
 "1 : Encode text.",
 "2 : Decode cipher.",
 "What is the text you wish to encode ?",
-"What is the shift you want to use ? (type 0 to get them all)",
+"What is the shift you want to use ? (type enter to get them all)",
 "What cipher do you want to decode ?",
-"What is the shift of the cipher ? (if you don't know, type 0)",
+"What is the shift of the cipher ? (if you don't know, type enter)",
 "You can use only the alphabetic characters.",
 "You can use only the numerical characters."
 ]
@@ -61,6 +66,8 @@ def longString(limits, caution):
 			if i == " ":
 				flag = 1
 		if flag == 1:
+			if answer == "":
+				answer = "0"
 			return answer
 		else:
 			print(caution)
@@ -86,17 +93,48 @@ def datasCaesar():
 		decodeCaesar(text, shift)
 		return False
 
-def encodeCaesar(text, shift=0):
+def encodeCaesar(text, shift):
 	"encode the datas from the user"
 	encoding = []
-	print("your text", text, "your shift", shift)
+	cipher = ""
+	c = 0
 
+	if shift !="0":
+		for i in text:
+			index = ALPHA.index(i)
+			encoding.append(shiftCaesar(index, shift))
+
+		for letter in encoding:
+			cipher += letter[1]
+		print(cipher)
+
+	elif shift == "0":
+		for i in text:
+			while c < 26:
+				index = ALPHA.index(i)
+				print(i, index)
+				shift = c
+				encoding.append(c)
+				encoding.append(shiftCaesar(index, shift))
+				c += 1
+			c = 0
+		print(encoding)
+		displayCaesar(encoding)
+
+
+
+
+def shiftCaesar(index, shift):
+	"move index letter from shift given"
+	newIndex = (int(index) + int(shift))%26
+	return (ALPHA[index], ALPHA[newIndex])
+	
 def decodeCaesar(ciphertext, shift=0):
 	"decode the datas from the user"
 	decoding = []
 	print("your text", ciphertext, "your shift", shift)
 
-def displayCaesar():
+def displayCaesar(codetable):
 	"print out all the shifts 1: 2: .. 26:"
 
 
