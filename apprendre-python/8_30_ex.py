@@ -22,9 +22,10 @@ gameBalls = {}
 gameBallsPrevPositions = {}
 gameBallsNewPositions = {}
 gameBallsMovements = {}
+
 flagMove, flagBalls = 0, 0
 nbBalls = 10
-r = 10
+r = 10 #balls radius
 
 
 #functions
@@ -43,37 +44,53 @@ def newGame():
 	# set the first balls movements
 	for i in gameBalls:
 		gameBallsMovements[i] = [randint(-10, 10), randint(-10, 10)]
-	print('movement of each balls :', gameBallsMovements, gameBallsMovements["ball1"][0], gameBallsMovements["ball4"][1])
 
 
 
 def moveBalls():
 	"ball movements"
 	
-	# set previous positions of the balls befor new move
-	for i in gameBalls:
-		gameBallsPrevPositions[i] = gameScreen.coords(gameBalls[i])
-
-	print("----\n", gameBalls, '\n', gameBallsPrevPositions, '\n', gameBallsNewPositions, "\n----\n")
+	# DEBUG TOOL 1
+	print("\n\n=============\n\nGame balls :\n", gameBalls,'\n\nMovement of each balls :\n', gameBallsMovements, '\n\nGame balls previous positions :\n', 
+	gameBallsPrevPositions, '\n\nGame balls actual positions :\n', gameBallsNewPositions, "\n\n=============\n\n")
 
 	# move each ball in a random direction
 	for i in gameBalls:
 		coords = gameScreen.coords(gameBalls[i])
 		x, y = coords[0]+10, coords[1]+10 #coordinates of the current ball
-		print(i, coords, x, y)
-		x = x + gameBallsMovements[i][0] # set the new x position
-		y = y + gameBallsMovements[i][1] # set the new y position
+		print('ball:', i, ": coords:", coords, "x:",x,"y:", y)
+		if checkCollision():
+			print("Not implemented")
+			#if true, gameBallsMovements change
+		else:
+			#if false, continue with the same gameBallsMovements
+			x = x + gameBallsMovements[i][0] # set the new x position
+			y = y + gameBallsMovements[i][1] # set the new y position
+
 		gameScreen.coords(gameBalls[i], x+10, y+10, x-10, y-10) #set the new position in canva
-		print(i, ": new coords:",gameScreen.coords(gameBalls[i]), "x:",x,"y:", y)
+		print('ball:', i, ": new coords:",gameScreen.coords(gameBalls[i]), "x:",x,"y:", y)
+		gameBallsPrevPositions[i] = gameBallsNewPositions[i] # set previous positions of the balls before new move being recorded
 		gameBallsNewPositions[i] = gameScreen.coords(gameBalls[i]) #set the new position in gameBallsNewPositions
 
-	print(list(gameBalls.key()))
-	#print("EXAMPLE:", gameBalls[], gameBallsPrevPositions[gameBalls[0]], gameBallsNewPositions[gameBalls[0]]) #example with one ball
+	# DEBUG TOOL 2
+	print("\n\n=============\n\n")
+	print(list(gameBalls)) # get the ball names
+	print(gameBalls['ball1'])
+	print("EXAMPLE ball1:", gameBalls['ball1'], 
+	"\nprevious coordinates :\nx :", gameBallsPrevPositions['ball1'][0]+10, "y :", gameBallsPrevPositions['ball1'][1]+10, 
+	"\nnew coordinates :\nx :", gameBallsNewPositions['ball1'][0]+10, "y :", gameBallsNewPositions['ball1'][1]+10, 
+	"\nmovements :\nx :", gameBallsMovements["ball1"][0], 'y :', gameBallsMovements["ball1"][1]) #example with one ball
+	print("\n\n=============\n\n")
 	
 	input('DEBUG MODE >>>')
 
 	if flagMove == 1:
 		root.after(50, moveBalls)
+
+
+def checkCollision():
+	"ball collisions"
+	return False
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
