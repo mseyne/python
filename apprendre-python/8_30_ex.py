@@ -1,6 +1,10 @@
 # -*- coding:Utf-8 -*-
 "many balls moving and bouncing on each other"
 
+"""
+- define a random function and replace the repetition, to get a precise value for movement (avoid 0)
+"""
+
 #libraries
 from tkinter import *
 from sys import exit
@@ -8,14 +12,15 @@ from random import choice, randint
 
 #datas
 TITLE = "Bouncing Balls !"
-COLORS = ['snow', 'ghost white', 'white smoke', 'gainsboro', 'floral white', 'old lace',
-    'linen', 'antique white', 'papaya whip', 'blanched almond', 'bisque', 'peach puff',
-    'navajo white', 'lemon chiffon', 'mint cream', 'azure', 'alice blue', 'lavender',
-    'lavender blush', 'misty rose', 'dark slate gray', 'dim gray', 'slate gray',
-    'light slate gray', 'gray', 'light grey', 'midnight blue', 'navy', 'cornflower blue', 'dark slate blue',
-    'slate blue', 'medium slate blue', 'light slate blue', 'medium blue', 'royal blue',  'blue',
-    'dodger blue', 'deep sky blue', 'sky blue', 'light sky blue', 'steel blue', 'light steel blue',
-    'light blue', 'powder blue', 'pale turquoise']
+COLORS = [
+'snow', 'gainsboro', 'old lace', 'linen', 'papaya whip', 'blanched almond', 'bisque', 
+'peach puff', 'lemon chiffon', 'mint cream', 'azure', 'alice blue', 'lavender',
+'lavender blush', 'misty rose', 'dark slate gray', 'dim gray', 'slate gray',
+'light slate gray', 'gray', 'light grey', 'midnight blue', 'navy', 'cornflower blue', 'dark slate blue',
+'slate blue', 'medium slate blue', 'light slate blue', 'medium blue', 'royal blue',  'blue',
+'dodger blue', 'deep sky blue', 'sky blue', 'light sky blue', 'steel blue', 'light steel blue',
+'light blue', 'powder blue', 'pale turquoise'
+]
 
 #global variables
 gameBalls = {}
@@ -43,7 +48,7 @@ def newGame():
 
 	# set the first balls movements
 	for i in gameBalls:
-		gameBallsMovements[i] = [randint(-10, 10), randint(-10, 10)]
+		gameBallsMovements[i] = [randint(-10, 10), randint(-10, 10)]  #change with a random function
 
 
 
@@ -51,46 +56,79 @@ def moveBalls():
 	"ball movements"
 	
 	# DEBUG TOOL 1
-	print("\n\n=============\n\nGame balls :\n", gameBalls,'\n\nMovement of each balls :\n', gameBallsMovements, '\n\nGame balls previous positions :\n', 
-	gameBallsPrevPositions, '\n\nGame balls actual positions :\n', gameBallsNewPositions, "\n\n=============\n\n")
+	# print("\n\n=============\n\nGame balls :\n", gameBalls,'\n\nMovement of each balls :\n', gameBallsMovements, '\n\nGame balls previous positions :\n', 
+	# gameBallsPrevPositions, '\n\nGame balls actual positions :\n', gameBallsNewPositions, "\n\n=============\n\n")
 
 	# move each ball in a random direction
-	for i in gameBalls:
-		coords = gameScreen.coords(gameBalls[i])
+	for ball in gameBalls:
+		coords = gameScreen.coords(gameBalls[ball])
 		x, y = coords[0]+10, coords[1]+10 #coordinates of the current ball
-		print('ball:', i, ": coords:", coords, "x:",x,"y:", y)
-		if checkCollision():
-			print("Not implemented")
-			#if true, gameBallsMovements change
-		else:
-			#if false, continue with the same gameBallsMovements
-			x = x + gameBallsMovements[i][0] # set the new x position
-			y = y + gameBallsMovements[i][1] # set the new y position
+		# print('ball:', ball, ": coords:", coords, "x:",x,"y:", y)
+		
+		checkCollisionWalls(ball, x, y) #if collision with the edges, gameBallsMovements modified
+		checkCollisionBalls(coords) #if collision with an other ball, gameBallsMovements modified
 
-		gameScreen.coords(gameBalls[i], x+10, y+10, x-10, y-10) #set the new position in canva
-		print('ball:', i, ": new coords:",gameScreen.coords(gameBalls[i]), "x:",x,"y:", y)
-		gameBallsPrevPositions[i] = gameBallsNewPositions[i] # set previous positions of the balls before new move being recorded
-		gameBallsNewPositions[i] = gameScreen.coords(gameBalls[i]) #set the new position in gameBallsNewPositions
+		x = x + gameBallsMovements[ball][0] # set the new x position
+		y = y + gameBallsMovements[ball][1] # set the new y position
+
+		gameScreen.coords(gameBalls[ball], x+10, y+10, x-10, y-10) #set the new position in canva
+		print('ball:', ball, ": new coords:",gameScreen.coords(gameBalls[ball]), "x:",x,"y:", y)
+		gameBallsPrevPositions[ball] = gameBallsNewPositions[ball] # set previous positions of the balls before new move being recorded
+		gameBallsNewPositions[ball] = gameScreen.coords(gameBalls[ball]) #set the new position in gameBallsNewPositions
 
 	# DEBUG TOOL 2
-	print("\n\n=============\n\n")
-	print(list(gameBalls)) # get the ball names
-	print(gameBalls['ball1'])
-	print("EXAMPLE ball1:", gameBalls['ball1'], 
-	"\nprevious coordinates :\nx :", gameBallsPrevPositions['ball1'][0]+10, "y :", gameBallsPrevPositions['ball1'][1]+10, 
-	"\nnew coordinates :\nx :", gameBallsNewPositions['ball1'][0]+10, "y :", gameBallsNewPositions['ball1'][1]+10, 
-	"\nmovements :\nx :", gameBallsMovements["ball1"][0], 'y :', gameBallsMovements["ball1"][1]) #example with one ball
-	print("\n\n=============\n\n")
-	
+	# print("\n\n=============\n\n")
+	# print(list(gameBalls)) # get the ball names
+	# print(gameBalls['ball1'])
+	# print("EXAMPLE ball1:", gameBalls['ball1'], 
+	# "\nprevious coordinates :\nx :", gameBallsPrevPositions['ball1'][0]+10, "y :", gameBallsPrevPositions['ball1'][1]+10, 
+	# "\nnew coordinates :\nx :", gameBallsNewPositions['ball1'][0]+10, "y :", gameBallsNewPositions['ball1'][1]+10, 
+	# "\nmovements :\nx :", gameBallsMovements["ball1"][0], 'y :', gameBallsMovements["ball1"][1]) #example with one ball
+	# print("\n\n=============\n\n")
 	input('DEBUG MODE >>>')
 
 	if flagMove == 1:
 		root.after(50, moveBalls)
 
 
-def checkCollision():
-	"ball collisions"
-	return False
+def checkCollisionWalls(ball, x, y):
+	"check ball collisions with walls"
+	if x <= 10:
+		print(ball, "x:", x)
+		changeBallMovement(ball, x, "x")
+
+	if x >= 590:
+		print(ball, "x:", x)
+		changeBallMovement(ball, x, "x")
+		
+	if y <= 10:
+		print(ball, "y:", y)
+		changeBallMovement(ball, y, "y")
+		
+	if y >= 590:
+		print(ball, "y:", y)
+		changeBallMovement(ball, y, "y")
+
+def checkCollisionBalls(coords):
+	"check ball collisions with other balls"
+	pass
+
+def changeBallMovement(ball, coord, invert):
+	"change the movement of the ball"
+	
+	#DEBUG TOOLS 1
+	print(gameBallsMovements, gameBallsMovements[ball])
+
+	random = randint(-10, 10) #change with a random function
+	if invert == "x":
+		gameBallsMovements[ball][0] = -coord
+		gameBallsMovements[ball][1] = random
+	if invert == "y":
+		gameBallsMovements[ball][0] = random
+		gameBallsMovements[ball][1] = -coord
+
+	#DEBUG TOOLS 2
+	print(gameBallsMovements, gameBallsMovements[ball])
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
