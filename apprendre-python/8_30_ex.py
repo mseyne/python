@@ -2,7 +2,7 @@
 "many balls moving and bouncing on each other"
 
 """
-- define a random function and replace the repetition, to get a precise value for movement (avoid 0)
+- draw the tracks for each balls
 """
 
 #libraries
@@ -66,14 +66,14 @@ def moveBalls():
 		# print('ball:', ball, ": coords:", coords, "x:",x,"y:", y)
 		
 		checkCollisionWalls(ball, x, y) #if collision with the edges, gameBallsMovements modified
-		checkCollisionBalls(coords) #if collision with an other ball, gameBallsMovements modified
+		checkCollisionBalls(ball, coords) #if collision with an other ball, gameBallsMovements modified
 
 		x = x + gameBallsMovements[ball][0] # set the new x position
 		y = y + gameBallsMovements[ball][1] # set the new y position
 
 		gameScreen.coords(gameBalls[ball], x+10, y+10, x-10, y-10) #set the new position in canva
-		print('ball:', ball, ": new coords:",gameScreen.coords(gameBalls[ball]), "x:",x,"y:", y)
-		gameBallsPrevPositions[ball] = gameBallsNewPositions[ball] # set previous positions of the balls before new move being recorded
+		# print('ball:', ball, ": new coords:",gameScreen.coords(gameBalls[ball]), "x:",x,"y:", y)
+		# gameBallsPrevPositions[ball] = gameBallsNewPositions[ball] # set previous positions of the balls before new move being recorded
 		gameBallsNewPositions[ball] = gameScreen.coords(gameBalls[ball]) #set the new position in gameBallsNewPositions
 
 	# DEBUG TOOL 2
@@ -85,7 +85,7 @@ def moveBalls():
 	# "\nnew coordinates :\nx :", gameBallsNewPositions['ball1'][0]+10, "y :", gameBallsNewPositions['ball1'][1]+10, 
 	# "\nmovements :\nx :", gameBallsMovements["ball1"][0], 'y :', gameBallsMovements["ball1"][1]) #example with one ball
 	# print("\n\n=============\n\n")
-	input('DEBUG MODE >>>')
+	# input('DEBUG MODE >>>')
 
 	if flagMove == 1:
 		root.after(50, moveBalls)
@@ -95,40 +95,39 @@ def checkCollisionWalls(ball, x, y):
 	"check ball collisions with walls"
 	if x <= 10:
 		print(ball, "x:", x)
-		changeBallMovement(ball, x, "x")
+		changeBallMovement(ball, "x")
 
 	if x >= 590:
 		print(ball, "x:", x)
-		changeBallMovement(ball, x, "x")
+		changeBallMovement(ball, "x")
 		
 	if y <= 10:
 		print(ball, "y:", y)
-		changeBallMovement(ball, y, "y")
+		changeBallMovement(ball, "y")
 		
 	if y >= 590:
 		print(ball, "y:", y)
-		changeBallMovement(ball, y, "y")
+		changeBallMovement(ball, "y")
 
-def checkCollisionBalls(coords):
+def checkCollisionBalls(ball, coords):
 	"check ball collisions with other balls"
-	pass
+	print(coords)
+	print(gameBallsNewPositions)
+	# print(gameBallsPrevPositions)
 
-def changeBallMovement(ball, coord, invert):
+def changeBallMovement(ball, invert):
 	"change the movement of the ball"
 	
 	#DEBUG TOOLS 1
-	print(gameBallsMovements, gameBallsMovements[ball])
-
-	random = randint(-10, 10) #change with a random function
+	# print(gameBallsMovements, gameBallsMovements[ball])
+	
 	if invert == "x":
-		gameBallsMovements[ball][0] = -coord
-		gameBallsMovements[ball][1] = random
+		gameBallsMovements[ball][0] = -gameBallsMovements[ball][0]
 	if invert == "y":
-		gameBallsMovements[ball][0] = random
-		gameBallsMovements[ball][1] = -coord
+		gameBallsMovements[ball][1] = -gameBallsMovements[ball][1]
 
 	#DEBUG TOOLS 2
-	print(gameBallsMovements, gameBallsMovements[ball])
+	# print(gameBallsMovements, gameBallsMovements[ball])
 
 def createCanva(w, h, c="light grey"):
 	return Canvas(root, width=w, height=h, bg=c)
