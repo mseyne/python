@@ -1,8 +1,5 @@
 # coding: latin-1
 
-"""
--restart the displayCaesar code, too much confuse method
-"""
 
 #libraries
 import sys
@@ -16,6 +13,7 @@ ALNUM = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 ALPHA = "abcdefghijklmnopqrstuvwxyz"
 NUMERIC = "1234567890"
 MINUS = "-"
+SPACE = " "
 
 INFO = [
 "What cipher do you want to use ?",
@@ -63,6 +61,8 @@ def longString(limits, caution):
 		for i in answer:
 			if i not in list(limits):
 				flag = 0
+			if i == SPACE: #Exception for " "
+				flag = 1
 			if i == MINUS and answer[0] == MINUS: #Exception for "-"
 				flag = 1
 			if i == "":
@@ -99,33 +99,34 @@ def encodeCaesar(text, shift):
 	"encode the datas from the user"
 	encoding = []
 	cipher = ""
-	c = 0
+	s = 0 # 26 shifts counter
 
 	if shift !="0":
-		for i in text:
-			index = ALPHA.index(i)
-			encoding.append(shiftCaesar(index, shift))
-
+		for letter in text:
+			if letter == SPACE:
+				encoding.append(SPACE)
+			else:
+				index = ALPHA.index(letter) #get the index letter
+				encoding.append(shiftIndex(index, shift)) #add to cipher new letter
 		for letter in encoding:
-			cipher += letter
-		print(cipher)
+			cipher += letter #build the cipher from encoding list
+		print(cipher) #return cipher
 
 	elif shift == "0":
-		for i in text:
-			while c < 26:
-				index = ALPHA.index(i)
-				shift = c
-				encoding.append((i+str(c),shiftCaesar(index, shift)))
-				c += 1
-			c = 0
-		print(encoding)
-		displayCaesar(text, encoding)
+		for letter in text: 
+			while s < 26:  #same than before, but do it for the 26 shifts
+				if letter == SPACE:
+					encoding.append((letter+str(s), SPACE)) #add to encoding " "
+				else:	
+					index = ALPHA.index(letter)
+					encoding.append((letter+str(s), shiftIndex(index, s)))
+				s += 1
+			s = 0
+		displayCaesar(text, encoding) #return 26 ciphers
 
 
-
-
-def shiftCaesar(index, shift):
-	"move index letter from shift given"
+def shiftIndex(index, shift):
+	"move index letter from shift given and return new letter"
 	newIndex = (int(index) + int(shift))%26
 	return (ALPHA[newIndex])
 	
@@ -137,24 +138,23 @@ def decodeCaesar(ciphertext, shift=0):
 def displayCaesar(text, codetable):
 	"print out all the shifts 1: 2: .. 26:"
 	wordList = []
-	word = 0
 	c = 0
-	lenght = 26
 
-	print(codetable)
+	while c < 26:
+		wordList.append([c])
+		for code in codetable:
+			if int(code[0][1:]) == c:
+				wordList[c].append(code[1])
+		c += 1
 
-
-	for i in text:
-		while c < lenght:
-			if word == 0:
-				wordList.insert(c, codetable[c][1])
-				word = 1
-			wordList[c] += codetable[c][1]
-			c += 1
-		lenght += 26
-
-	print(wordList)
-
+	for word in wordList:
+		print("shift", word[0], ":", end=" ")
+		c = 1
+		newWord = ""
+		while c <= len(text):
+			newWord += word[c] 
+			c+=1
+		print(newWord)
 
 
 def datasVigenere():
@@ -206,24 +206,7 @@ def menu():
 		elif answer in list("3Qq"):
 			sys.exit()
 
-text = "aze"
-code = [
-('a0', 'a'), ('a1', 'b'), ('a2', 'c'), ('a3', 'd'), ('a4', 'e'), ('a5', 'f'), ('a6', 'g'), ('a7', 'h'), ('a  8', 'i'), 
-('a9', 'j'), ('a10', 'k'), ('a11', 'l'), ('a12', 'm'), ('a13', 'n'), ('a14', 'o'), ('a15', 'p'), (  'a16', 'q'), 
-('a17', 'r'), ('a18', 's'), ('a19', 't'), ('a20', 'u'), ('a21', 'v'), ('a22', 'w'), ('a23', 'x'  ), ('a24', 'y'), 
-('a25', 'z'), ('z0', 'z'), ('z1', 'a'), ('z2', 'b'), ('z3', 'c'), ('z4', 'd'), ('z5', 'e'),   ('z6', 'f'), ('z7', 'g'), 
-('z8', 'h'), ('z9', 'i'), ('z10', 'j'), ('z11', 'k'), ('z12', 'l'), ('z13', 'm'),   ('z14', 'n'), ('z15', 'o'), 
-('z16', 'p'), ('z17', 'q'), ('z18', 'r'), ('z19', 's'), ('z20', 't'), ('z21', '  u'), ('z22', 'v'), ('z23', 'w'), 
-('z24', 'x'), ('z25', 'y'), ('e0', 'e'), ('e1', 'f'), ('e2', 'g'), ('e3', '  h'), ('e4', 'i'), ('e5', 'j'), ('e6', 'k'), 
-('e7', 'l'), ('e8', 'm'), ('e9', 'n'), ('e10', 'o'), ('e11', 'p'  ), ('e12', 'q'), ('e13', 'r'), ('e14', 's'), ('e15', 't'), 
-('e16', 'u'), ('e17', 'v'), ('e18', 'w'), ('e19',   'x'), ('e20', 'y'), ('e21', 'z'), ('e22', 'a'), ('e23', 'b'), 
-('e24', 'c'), ('e25', 'd')
-]
-
 
 if __name__ == '__main__':
-	#menu()
+	menu()
 	
-
-	displayCaesar(text, code)
-
