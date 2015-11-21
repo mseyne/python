@@ -74,7 +74,6 @@ def longString(limits, caution):
 		else:
 			print(caution)
 
-
 def datasCaesar():
 	"get the datas from the user"
 	action = menu2()
@@ -92,7 +91,7 @@ def datasCaesar():
 		text = longString(ALPHA, INFO[11]) 
 		print(INFO[10])
 		shift = longString(NUMERIC, INFO[12])
-		decodeCaesar(text, shift)
+		encodeCaesar(text, shift)
 		return False
 
 def encodeCaesar(text, shift):
@@ -167,10 +166,12 @@ def datasVigenere():
 
 def encodeVigenere():
 	print("let's encode Vigenère cipher!")
+	print("no implemented yet :(")
 	return False
 
 def decodeVigenere():
 	print("let's decode Vigenère cipher!")
+	print("no implemented yet :(")
 	return False
 
 def displayVignere():
@@ -184,7 +185,6 @@ def menu2():
 	print(INFO[6])
 	answer = string('12')
 	return answer
-
 
 
 def menu():
