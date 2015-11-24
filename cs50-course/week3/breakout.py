@@ -8,6 +8,7 @@ One paddle, one bouncing ball and bricks
 #libraries
 from tkinter import *
 from random import choice
+from sys import exit
 
 #datas
 TITLE = "Breakout Game"
@@ -20,18 +21,26 @@ COLORS = [
 'slate blue', 'medium slate blue', 'light slate blue', 'medium blue', 'royal blue',  'blue',
 'dodger blue', 'deep sky blue', 'sky blue', 'light sky blue', 'steel blue', 'light steel blue',
 'light blue', 'powder blue', 'pale turquoise'
-]
+] #used to get random color for bricks
 
 WIDTH, HEIGHT = 400, 600
 
 #variables
 bricks = []
 
-bx, by, br = 0, 0, 10 #ball coordinates and radius
+bx, by, br = 200, 564, 8 #ball coordinates and radius
 
 px, py, pw, ph = 200, 580, 80/2, 16/2 #x y rectangle coordinates, half width and half height
 
+flag = "stop"
+
 #functions
+def newGame():
+	global flag, px, bx, by
+	flag = "play"
+	px = 200
+	bx, by = 200, 554
+
 def setGrid():
 	gameScreen.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 	butNew.grid(row=1, column=0, padx= 5, pady= 10)
@@ -39,6 +48,7 @@ def setGrid():
 
 
 def configWindow():
+	root.title(TITLE)
 	root.update_idletasks()
 	width = root.winfo_width()
 	height = root.winfo_height()
@@ -46,23 +56,53 @@ def configWindow():
 	y = (root.winfo_screenheight()//2) - height//2
 	root.geometry("{}x{}+{}+{}".format(width, height, x, y))
 
+def paddleMovement(direction):
+	"determine action with direction"
+	global px
+
+	if flag == "play":
+		if direction == "right":
+			if px+pw == 400: #fix for the outlinepixel
+				px += 1
+			if px+pw < 400:
+				px += 10
+		if direction == "left":
+			if px+pw == 401: #fix for the outline pixel
+				px -= 1
+			if px-pw > 0:
+				px -= 10
+		print(px, px+pw, px-pw)
+		gameScreen.coords(paddle, px+pw, py+ph, px-pw, py-ph)
+
+	else:
+		pass
+
+def exit(event):
+	sys.exit()
 
 #program
 if __name__ == "__main__":
 	root = Tk()
-	root.title(TITLE)
+	root.bind("<Escape>", exit)
 
 	#create gamescreen
 	gameScreen = Canvas(root, width=WIDTH, height=HEIGHT, bg=COLORS[0], highlightthickness=1, highlightbackground="black")
 	
 	#create button
 	butQuit = Button(root, text="Quit", command=root.quit)
-	butNew = Button(root, text="New Game")
+	butNew = Button(root, text="New Game", command=newGame)
 
 
-	#create a rectangle that will serve as game paddle
-	paddle = gameScreen.create_rectangle(px+pw, py+ph, px-pw, py-ph, fill="blue")
-	
+	#create a rectangle that will serve as game paddle and bind arrow keys
+	paddle = gameScreen.create_rectangle(px+pw, py+ph, px-pw, py-ph, fill="dodger blue", width=0)
+
+	gameScreen.bind("<Right>", lambda e: paddleMovement("right"))
+	gameScreen.bind("<Left>", lambda e: paddleMovement("left"))
+	gameScreen.focus_set()
+
+
+	#create a cercle that will serve as the game ball
+	ball = gameScreen.create_oval(bx+br, by+br, bx-br, by-br, fill="tomato", outline="firebrick")
 
 	setGrid()
 	configWindow()
