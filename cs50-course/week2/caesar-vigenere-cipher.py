@@ -1,5 +1,4 @@
-# coding: latin-1
-
+# -*- coding:Utf-8 -*-
 
 #libraries
 import sys
