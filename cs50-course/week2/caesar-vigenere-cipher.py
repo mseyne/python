@@ -1,5 +1,9 @@
 # -*- coding:Utf-8 -*-
 
+'''
+-accept all character and get only the one which will be shifted, then, rebuild the sentence
+'''
+
 #libraries
 import sys
 import os
@@ -26,8 +30,10 @@ INFO = [
 "What is the shift you want to use ? (type enter to get them all)",
 "What cipher do you want to decode ?",
 "What is the shift of the cipher ? (if you don't know, type enter)",
-"You can use only the alphabetic characters.",
-"You can use only the numerical characters."
+"You can use only the alphabetic characters in one unique word.",
+"You can use only the numerical characters (negative number accepter).",
+"What is the key word that will encode your text?",
+"What is the key word that will decode your cipher?"
 ]
 
 PROMPT = '>>>'
@@ -39,8 +45,7 @@ PROMPT = '>>>'
 #fonctions
 def string(limits):
 	"ask for the user to give a short input"
-	question = 1
-	while question:
+	while True:
 		answer = input(PROMPT)
 		if answer in list(limits):
 			return answer
@@ -53,25 +58,34 @@ def string(limits):
 
 def longString(limits, caution):
 	"ask for the user to give a long input"
-	question = 1
-	while question:
+	while True:
 		flag = 1
+		check = list(limits)
+		
 		answer = input(PROMPT).lower()
+
+		if answer == "":
+			return "0"
+
 		for i in answer:
-			if i not in list(limits):
+			if i in check:
+				pass
+			elif "1" in check and i == MINUS and answer[0] == MINUS: #Exception for "-"
+				pass
+			else:
+				print(caution)
 				flag = 0
-			if i == SPACE: #Exception for " "
-				flag = 1
-			if i == MINUS and answer[0] == MINUS: #Exception for "-"
-				flag = 1
-			if i == "":
-				flag = 1
+				break
+
 		if flag == 1:
-			if answer == "":
-				answer = "0"
 			return answer
-		else:
-			print(caution)
+
+
+def getInput():
+	"ask for the user to give a long input"
+	answer = input(PROMPT)
+	return answer
+		
 
 def datasCaesar():
 	"get the datas from the user"
@@ -128,10 +142,10 @@ def shiftIndex(index, shift):
 	newIndex = (int(index) + int(shift))%26
 	return (ALPHA[newIndex])
 	
-def decodeCaesar(ciphertext, shift=0):
-	"decode the datas from the user"
-	decoding = []
-	print("your text", ciphertext, "your shift", shift)
+# def decodeCaesar(ciphertext, shift=0):
+# 	"decode the datas from the user"
+# 	decoding = []
+# 	print("your text", ciphertext, "your shift", shift)
 
 def displayCaesar(text, codetable):
 	"print out all the shifts 1: 2: .. 26:"
@@ -158,20 +172,36 @@ def displayCaesar(text, codetable):
 def datasVigenere():
 	"get the datas from user"
 	action = menu2()
+	
 	if action == "1":
-		cipher = encodeVigenere()
+		print(INFO[7])
+		text = getInput() 
+		print(INFO[13])
+		key = longString(ALPHA, INFO[11])
+		encodeVigenere(text, key)
+		return False
+	
 	if action == "2":
-		cipher = decodeVigenere()
+		print(INFO[9])
+		text = getInput() 
+		print(INFO[14])
+		key = longString(ALPHA, INFO[11]) 
+		encodeVigenere(text, key)
+		return False
 
-def encodeVigenere():
+def encodeVigenere(text, key):
 	print("let's encode Vigenère cipher!")
-	print("no implemented yet :(")
+	print("your text :", text, "your key :", key)
+
+	#take a one string lowered and build the key along this with key banane ex = string, jesuiscontent, key, bananebananeb
+	#convert the string along the shift for each letter of the key word
+	#rebuild the sentence (with space and others character) 
 	return False
 
-def decodeVigenere():
-	print("let's decode Vigenère cipher!")
-	print("no implemented yet :(")
-	return False
+# def decodeVigenere(text, key):
+# 	print("let's decode Vigenère cipher!")
+# 	print("no implemented yet :(")
+# 	return False
 
 def displayVignere():
 	"display the datas encoded or decoded from the user"
