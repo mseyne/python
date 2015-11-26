@@ -24,7 +24,7 @@ nb, bricks = 25, [] #bricks number and list
 brickDic = {} #bricks dictionnary with coordinates
 
 bx, by, br = 200, 564, 8 #ball coordinates and radius
-dx, dy = 1, -1 #ball directions
+dx, dy = 2, -2 #ball directions
 px, py, pw, ph = 200, 580, 80/2, 16/2 #x y rectangle coordinates, half width and half height
 
 flag = "stop"
@@ -77,9 +77,20 @@ def paddleMovement(direction):
 
 def ballMovement():
 	"determine the ball movement"
-	global bx, by
+	global bx, by, dx, dy
 
 	if flag == "play":
+		#change direction if ball reach an edge
+		if bx+br >= WIDTH or bx-br <= 0:
+			dx = -dx
+		if by+br >= HEIGHT or by-br <=0:
+			dy = -dy
+
+		#change direction if the ball reach a brick
+		if by-br <= 250:
+			if checkImpact():
+				dy = -dy
+
 		bx += dx
 		by += dy
 		gameScreen.coords(ball, bx+br, by+br, bx-br, by-br)
@@ -104,6 +115,15 @@ def createBricks():
 		brickDic[brick] = [x-hw, y-hh, x+hw, y+hh]
 		
 		c += 1
+
+
+def checkImpact():
+	"return true if the ball touch a brick (brick destroyed and removed from bricks and brickDic)"
+	print("CHECK IMPACT")
+	for brick in bricks:
+		if by-br == brickDic[brick][3] and bx >= brickDic[brick][0] and bx <= brickDic[brick][2]:
+			print("Impact!")
+			return True
 
 def checkBricks():
 	"check coords of each bricks"
