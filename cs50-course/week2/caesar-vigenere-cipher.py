@@ -89,7 +89,7 @@ def getInput():
 
 def datasCaesar():
 	"get the datas from the user"
-	action = menu2()
+	action = menuAction()
 	
 	if action == "1":
 		print(INFO[7])
@@ -171,7 +171,7 @@ def displayCaesar(text, codetable):
 
 def datasVigenere():
 	"get the datas from user"
-	action = menu2()
+	action = menuAction()
 	
 	if action == "1":
 		print(INFO[7])
@@ -195,7 +195,46 @@ def encodeVigenere(text, key):
 
 	#take a one string lowered and build the key along this with key banane ex = string, jesuiscontent, key, bananebananeb
 	#convert the string along the shift for each letter of the key word
+	wordToEncode = ""
+	#take the user input and build the world with letter checked ready for encoding
+	for ch in text:
+		character = ch.lower()
+		if character in ALPHA:
+			wordToEncode += character
+	print(wordToEncode)
+
+	#create a keyword using the key of the same lenght than the variable wordToEncode
+	keyword = ""
+	pos = 0
+	for letter in wordToEncode:
+		keyword += key[pos % len(key)]
+		pos += 1
+	print(keyword)
+
+	#take the index of each letter of the keyword which will serve as shift for the wordToEncode lettes and build a list
+	shiftsList = []
+	for letter in keyword:
+		shiftsList.append(ALPHA.index(letter))
+	print(shiftsList)
+
+	#shift each letter from wordToEncode with the integer of the same index in shiftsList
+	newWord = ""
+	pos = 0
+	while pos < len(wordToEncode):
+		letterIndex = ALPHA.index(wordToEncode[pos])
+		shift = shiftsList[pos]
+		print(type(letterIndex), type(shift))
+		newIndex = (letterIndex + shift) % 26
+		newLetter = ALPHA[newIndex]
+		newWord += newLetter
+		pos+=1
+	print(newWord)
+
+
 	#rebuild the sentence (with space and others character) 
+
+
+	#return
 	return False
 
 # def decodeVigenere(text, key):
@@ -207,7 +246,7 @@ def displayVignere():
 	"display the datas encoded or decoded from the user"
 	pass
 
-def menu2():
+def menuAction():
 	"ask for encoding or decoding"
 	print(INFO[4])
 	print(INFO[5])
@@ -237,5 +276,6 @@ def menu():
 
 
 if __name__ == '__main__':
-	menu()
+	#menu()
+	datasVigenere()
 	
