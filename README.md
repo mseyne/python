@@ -1,9 +1,12 @@
 ## Free and Open Source University Curriculum
 **A path for learning computer science through web and game development**
 
-## Computer Science Projects :
+##introduction to computer science
 
-- binary converter
-- find the prime number
-- credit card checker
-- caesar cipher
+
+####projects :
+
+* binary converter in python/tkinter, ascii/unicode table
+* credit card checker (luhn algorithm)
+* caesar and vigenère cipher coder/decoder
+* [breakout game](breakout.py)
