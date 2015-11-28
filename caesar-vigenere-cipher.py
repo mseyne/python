@@ -1,11 +1,5 @@
 # -*- coding:Utf-8 -*-
 
-'''
-- displayCaesar() to improve for complete sentence
-- check if minus - shift work with caesar
-- decoding caesar don't work
-'''
-
 #libraries
 import sys
 import os
@@ -17,8 +11,6 @@ TITLE = "-----------------------\nCRYPTOGRAPHY ALGORITHMS\n---------------------
 ALNUM = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 ALPHA = "abcdefghijklmnopqrstuvwxyz"
 NUMERIC = "1234567890"
-MINUS = "-"
-SPACE = " "
 
 INFO = [
 "What cipher do you want to use ?",
@@ -31,7 +23,7 @@ INFO = [
 "What is the text you wish to encode ?",
 "What is the shift you want to use ? (type enter to get them all)",
 "What cipher do you want to decode ?",
-"What is the shift of the cipher ? (if you don't know, type enter)",
+"What is the shift which have been used for the cipher ? (if you don't know, type enter)",
 "You can use only the alphabetic characters in one unique word.",
 "You can use only the numerical characters (negative number accepter).",
 "What is the key word that will encode your text?",
@@ -64,7 +56,7 @@ def longString(limits, caution):
 		flag = 1
 		check = list(limits)
 		
-		answer = input(PROMPT).lower()
+		answer = getInput()
 
 		if answer == "":
 			return "0"
@@ -72,7 +64,7 @@ def longString(limits, caution):
 		for i in answer:
 			if i in check:
 				pass
-			elif "1" in check and i == MINUS and answer[0] == MINUS: #Exception for "-"
+			elif "1" in check and i == '-' and answer[0] == '-': #Exception for "-"
 				pass
 			else:
 				print(caution)
@@ -85,7 +77,7 @@ def longString(limits, caution):
 
 def getInput():
 	"ask for the user to give a long input"
-	answer = input(PROMPT)
+	answer = input(PROMPT).lower()
 	return answer
 		
 
@@ -98,7 +90,7 @@ def datasCaesar():
 		text = getInput() 
 		print(INFO[8])
 		shift = longString(NUMERIC, INFO[12])
-		encodeCaesar(text, shift)
+		encodeCaesar(text, shift, '1')
 		return False
 	
 	if action == "2":
@@ -106,17 +98,25 @@ def datasCaesar():
 		text = getInput()
 		print(INFO[10])
 		shift = longString(NUMERIC, INFO[12])
-		encodeCaesar(text, shift)
+		encodeCaesar(text, shift, '2')
 		return False
 
-def encodeCaesar(text, shift):
+
+def encodeCaesar(text, shift, action):
 	"encode the datas from the user"
+	print("let's encode Caesar cipher!")
+	print('===========================', "\nYour text is :", text + ". Your shift is :", shift+".")
 	encoding = []
 	cipher = ""
 	s = 0 # 26 shifts counter
 
+	#shift become negative if the action is decoding
+	if action == '2' and shift != "0":
+		shift = -int(shift)
+
 	wordToEncode = ''
 
+	#make one word of the user input
 	for letter in text:
 		if letter in list(ALPHA):
 			wordToEncode += letter
@@ -126,17 +126,17 @@ def encodeCaesar(text, shift):
 			index = ALPHA.index(letter) #get the index letter
 			cipher += shiftIndex(index, shift) #add to cipher new letter
 		
-	newText = ""
-	pos = 0
-	#rebuild the complete sentence
-	for letter in text:
-		if letter in list(ALPHA):
-			newText += cipher[pos]
-			pos += 1
-		else:
-			newText += letter
+		newText = ""
+		pos = 0
 
-	print("Your cipher is :", newText) #return cipher
+		#rebuild the complete sentence
+		for letter in text:
+			if letter in list(ALPHA):
+				newText += cipher[pos]
+				pos += 1
+			else:
+				newText += letter
+		print("Your cipher is :", newText) #return cipher
 
 	if shift == "0":
 		for letter in wordToEncode: 
@@ -145,7 +145,7 @@ def encodeCaesar(text, shift):
 				encoding.append((letter+str(s), shiftIndex(index, s)))
 				s += 1
 			s = 0
-		displayCaesar(wordToEncode, encoding) #return 26 ciphers
+		displayCaesar(text, encoding) #return 26 ciphers
 
 
 def shiftIndex(index, shift):
@@ -157,6 +157,7 @@ def shiftIndex(index, shift):
 # 	"decode the datas from the user"
 # 	decoding = []
 # 	print("your text", ciphertext, "your shift", shift)
+
 
 def displayCaesar(text, codetable):
 	"print out all the shifts 1: 2: .. 26:"
@@ -171,12 +172,15 @@ def displayCaesar(text, codetable):
 		c += 1
 
 	for word in wordList:
-		print("shift", word[0], ":", end=" ")
-		c = 1
 		newWord = ""
-		while c <= len(text):
-			newWord += word[c] 
-			c+=1
+		pos = 1
+		for letter in text:
+			if letter in list(ALPHA):
+				newWord += word[pos]
+				pos += 1
+			else:
+				newWord += str(letter)
+		print("shift", word[0], ":", end=" ")
 		print(newWord)
 
 
@@ -208,8 +212,7 @@ def encodeVigenere(text, key, action):
 	#convert the string along the shift for each letter of the key word
 	wordToEncode = ""
 	#take the user input and build the world with letter checked ready for encoding
-	for ch in text:
-		character = ch.lower()
+	for character in text:
 		if character in ALPHA:
 			wordToEncode += character
 	# print(wordToEncode)
