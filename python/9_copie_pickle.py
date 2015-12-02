@@ -1,0 +1,16 @@
+import pickle
+a, b, c, d = '27', 12.96, [5, 4.83, 'Michael'], 1
+f = open("donnees_test", 'wb')
+pickle.dump(a, f)
+pickle.dump(b, f)
+pickle.dump(c, f)
+pickle.dump(d, f)
+f.close()
+f = open('donnees_test', 'rb')
+j = pickle.load(f)
+k = pickle.load(f)
+l = pickle.load(f)
+m = pickle.load(f)
+print(j, k, l[0], m)
+print(type(j), type(k), type(l), type(m))
+f.close()
