@@ -1,0 +1,18 @@
+Member number : #1
+============
+lastname : Prost
+firstname : Michael
+postal code : 092478
+adress : 12 rue des fleurs
+phone number : 0384383492045
+age : 12
+birthdate : 1234
+Member number : #1
+============
+lastname : Jacquart
+firstname : Albert
+postal code : 09123
+adress : milieu de terrain, vers la cage de but
+phone number : 0100100101001
+age : 12
+birthdate : 1234
