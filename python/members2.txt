@@ -2,17 +2,19 @@ Member number : #1
 ============
 lastname : Prost
 firstname : Michael
-postal code : 092478
-adress : 12 rue des fleurs
-phone number : 0384383492045
+postal code : 123480
+adress : morvan profond
+phone number : 12345678
 age : 12
-birthdate : 1234
-Member number : #1
+birthdate : 9000
+sex : m
+Member number : #2
 ============
-lastname : Jacquart
-firstname : Albert
-postal code : 09123
-adress : milieu de terrain, vers la cage de but
-phone number : 0100100101001
-age : 12
-birthdate : 1234
+lastname : Jackart
+firstname : Alberto
+postal code : 09957
+adress : usa
+phone number : 8453445
+age : 20
+birthdate : 1111
+sex : f

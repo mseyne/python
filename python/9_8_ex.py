@@ -31,12 +31,27 @@ def readFile():
 	print(text)
 	memberfile.close()
 
+def menuText():
+	print("==============================================")
+	print("do you want to add a member or read the list ?")
+	print("1. Add a member.")
+	print("2. Read list.")
+	print("3. Quit.")
+	print("==============================================")
+
 def menu():
-	# add a member ?
-	# read the member list ?
-	# quit ?
-	pass
+	menuText()
+	answer = ""
+	while answer != "3":
+		answer = input(">>>")
+		if answer == "1":
+			addMember()
+			menuText()
+		if answer == "2":
+			readFile()
+			menuText()
+		if answer == "3":
+			pass
 
 if __name__ == "__main__":
-	addMember()
-	readFile()
+	menu()

@@ -5,8 +5,6 @@ bug, should be a different age for each member; find out how much member have be
 """
 
 DATAS = []
-data1 = ["age", ""]
-data2 = ["birthdate", ""]
 NEWDATAS = []
 
 def copyFile():
@@ -18,22 +16,34 @@ def copyFile():
 
 def askDatas():
 	"ask user for new datas"
-	global data1, data2
+	data1 = ["age", ""]
+	data2 = ["birthdate", ""]
+	data3 = ["sex", ""]
 	data1[1] = input("What is the age of the member ?") 
 	data2[1] = input("What is the birthdate of the member ?") 
+	data3[1] = input("What is the sex of the member ?")
+	return [data1, data2, data3]
 
-def readDatas():
+def newDatas():
 	"read datas"
 	c = 0
+	name = ""
+
 	while c < len(DATAS):
-		print(DATAS[c])
 		NEWDATAS.append(DATAS[c])
+
+		if c % 7 == 2 or c % 7 == 3:
+			namepart = DATAS[c].split()[2]
+			name += namepart+" "
+
 		c+=1
+
 		if c % 7 == 0:
-			NEWDATAS.append(data1[0]+" : "+data1[1]+"\n")
-			NEWDATAS.append(data2[0]+" : "+data2[1]+"\n")
-			print(data1[0], ":", data1[1])
-			print(data2[0], ":", data2[1])
+			print(name, ":")
+			dataList = askDatas()
+			for data in dataList:
+				NEWDATAS.append(data[0]+" : "+data[1]+"\n")
+			name = ""
 
 def writeDatas():
 	"write data in new file"
@@ -42,7 +52,12 @@ def writeDatas():
 		newFile.write(data)
 	newFile.close()
 
+def readDatas():
+	"read the new datas"
+	for d in NEWDATAS:
+		print(d)
+
 copyFile()
-askDatas()
-readDatas()
+newDatas()
 writeDatas()
+readDatas()
