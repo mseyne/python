@@ -1,6 +1,6 @@
 #add in a file, lastname, firstname, adress, phone number, postal code
 
-dictionnary = [["lastname",""], ["firstname",""], ["postal code",""], ["adress", ""], ["phone number",""]]
+dictionnary = [["lastname",""], ["firstname",""], ["postal code",""], ["address", ""], ["phone number",""]]
 member = 0
 
 print("Add a member.")
@@ -11,7 +11,7 @@ def addMember():
 	member += 1
 	c = 0
 	while c < len(dictionnary):
-		data = input("Please give me the "+dictionnary[c][0]+" of the member.")
+		data = input("Please give me the "+dictionnary[c][0]+" of the member.\n>>>")
 		dictionnary[c][1] = data
 		c+=1
 	writeFile()

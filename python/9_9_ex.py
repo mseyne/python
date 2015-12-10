@@ -1,9 +1,5 @@
 # add age and birth date to members
 
-"""
-bug, should be a different age for each member; find out how much member have been registered and ask for each the correct datas.
-"""
-
 DATAS = []
 NEWDATAS = []
 

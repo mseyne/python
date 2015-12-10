@@ -2,13 +2,13 @@ Member number : #1
 ============
 lastname : Prost
 firstname : Michael
-postal code : 123480
-adress : morvan profond
-phone number : 12345678
+postal code : 83500
+address : 101 rue des fleurs
+phone number : 0110100010010101
 Member number : #2
 ============
-lastname : Jackart
-firstname : Alberto
-postal code : 09957
-adress : usa
-phone number : 8453445
+lastname : Jakar
+firstname : Albert
+postal code : 999666
+address : 140 avenue du domicile fixe
+phone number : 0987654321
