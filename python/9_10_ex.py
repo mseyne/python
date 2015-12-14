@@ -2,7 +2,33 @@
 
 OPTIONS = ["postal code", "address", "phone number", "age", "birthdate", "sex"]
 DATAS = []
+NAMES = []
 
+
+def gatherNames():
+	"get the names from datas"
+	global NAMES
+	gather = ""
+	name = ""
+	c = 0 #append to NAMES when name and lastnam gathered
+
+	for data in DATAS:
+		if "firstname" in data:
+			gather += data[11:]
+			c += 1
+
+		if "lastname" in data:
+			gather += data[10:]
+			c += 1
+
+		if c == 2:
+			for letter in gather:
+				if letter not in "\n": #remove the \n
+					name += letter
+			NAMES.append(name)
+			#return to default
+			gather, name = "", "" 
+			c = 0
 
 def checkInfo(option, ln, fn):
 	"check if user input is valid"
@@ -15,7 +41,7 @@ def checkInfo(option, ln, fn):
 			valid += 1
 		if fn in data.lower():
 			valid += 1
-		if valid == 2 and c < 6: #add all the data related to this member
+		if valid == 2 and c < 7: #add all the data related to this member
 			datas.append(data)
 			c += 1
 
@@ -49,17 +75,24 @@ def loadFile():
 def menu():
 	loadFile() #load datas
 
-	print("What data are you interested to know ?")
-	for option in OPTIONS[:-1]:
-		print(option, end=", ")
-	print(OPTIONS[-1]+".")
-	option = input(">>>").lower()
+	#display all the members names
+	gatherNames()
+	nb = 1
+	for name in NAMES:
+		print(nb,':', name)
+		nb+=1
 
 	print("What is the lastname of the member you are interested to know about?")
 	lastname = input(">>>").lower()
 
 	print("What is the firstname of the member you are interested to know about?")
 	firstname = input(">>>").lower()
+
+	print("What data are you interested to know ?")
+	for option in OPTIONS[:-1]:
+		print(option, end=", ")
+	print(OPTIONS[-1]+".")
+	option = input(">>>").lower()
 
 	checkInfo(option, lastname, firstname)
 

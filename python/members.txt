@@ -4,7 +4,7 @@ lastname : Prost
 firstname : Michael
 postal code : 83500
 address : 101 rue des fleurs
-phone number : 0110100010010101
+phone number : 8181818818181818181
 Member number : #2
 ============
 lastname : Jakar
@@ -12,3 +12,24 @@ firstname : Albert
 postal code : 999666
 address : 140 avenue du domicile fixe
 phone number : 0987654321
+Member number : #3
+============
+lastname : Louis
+firstname : Quatorze
+postal code : 101010
+address : 1 roi soleil
+phone number : 0101010101010101
+Member number : #4
+============
+lastname : Polo
+firstname : Marco
+postal code : 10234848
+address : india to spain
+phone number : 098981243342
+Member number : #5
+============
+lastname : Newton
+firstname : Eric
+postal code : 123556
+address : e = mc2
+phone number : 1233245678

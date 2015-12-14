@@ -2,8 +2,20 @@
 
 dictionnary = [["lastname",""], ["firstname",""], ["postal code",""], ["address", ""], ["phone number",""]]
 member = 0
+DATAS = []
 
-print("Add a member.")
+
+def checkMember():
+	'check the number of Member'
+	global member
+	member = 0
+	c = 0
+	for data in DATAS:
+		c+=1
+		if c % 7 == 0:
+			member += 1
+
+	print("There is already", member, "members.")
 
 def addMember():
 	"ask for the member informations"
@@ -19,17 +31,20 @@ def addMember():
 def writeFile():
 	"add a member in a file"
 	memberfile = open("members.txt", "a")
-	memberfile.write("Member number : "+"#"+str(member)+"\n============\n")
+	memberfile.write("\nMember number : "+"#"+str(member)+"\n============\n")
 	for data in dictionnary:
 		memberfile.write(data[0]+" : "+data[1]+"\n")
 	memberfile.close()
 
 def readFile():
-	"display the member file"
+	"read and save the member file"
+	global DATAS
 	memberfile = open("members.txt", "r")
-	text = memberfile.read()
-	print(text)
+	DATAS = memberfile.readlines()
+	for data in DATAS:
+		print(data)
 	memberfile.close()
+	checkMember()
 
 def menuText():
 	print("==============================================")
@@ -54,4 +69,5 @@ def menu():
 			pass
 
 if __name__ == "__main__":
+	readFile()
 	menu()
