@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding:Utf8 -*-
 "find a data in file"
 
 OPTIONS = ["postal code", "address", "phone number", "age", "birthdate", "sex"]
@@ -61,7 +63,7 @@ def checkInfo(option, ln, fn):
 
 def getInfo(option, ln, fn, datas):
 	"return the information"
-	print("You want to know the", option, "of", ln, fn)
+	print("The", option, "of", ln, fn,':')
 	for data in datas:
 		if option in data:
 			print(data)
