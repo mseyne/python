@@ -15,7 +15,7 @@ for letter in sentence:
 		length += 1
 	
 	if flag == 1 and length < len(word):
-		print(letter, word[length])
+		# print(letter, word[length])
 		if letter == word[length]:
 			check += letter #next letter
 			length += 1
@@ -25,6 +25,6 @@ for letter in sentence:
 		flag = 0
 		check = ""
 		length = 0
-	print(check, length, flag, letter)
+	# print(check, length, flag, letter)
 
 print("The word", word, "occur", occurence, "times in", sentence, ".")
