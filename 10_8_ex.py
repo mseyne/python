@@ -9,12 +9,17 @@ for letter in phraseCheck:
    	if letter in caractCheck:
 	   	dictioCheck[letter] += 1
 
-print("Dans la phrase", phraseCheck, "il y a ", end="")
-
 wordreturn = ""
+noCarac = 0
+
 for carac in caractCheck:
     if dictioCheck[carac] > 0:
         wordreturn += str(dictioCheck[carac]) + " lettre(s) " + carac + ", "
+    if dictioCheck[carac] == 0:
+    	noCarac += 1
 
-print(wordreturn[:-2] + ".")
+if noCarac == 5:
+	print("Dans la phrase", phraseCheck, "il n'y a pas les caractères recherchés.")
+else:
+	print("Dans la phrase", phraseCheck, "il y a " + wordreturn[:-2] + ".")
 
