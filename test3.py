@@ -1,16 +1,5 @@
-string = input(">>>")
-c = 0
-nstring = ""
-while c < len(string):
-	nstring += string[c] + "*"
-	c+=1
+def ftoc(temp):
+  return (5.0/9.0) * (temp - 32.0)
 
-print(nstring[:-1])
-
-
-nstring = ""
-for letter in string:
-	nstring += letter+"*"
-
-print(nstring[:-1])
-
+def ctof(temp):
+  return(9.0/5.0) * temp + 32.0
