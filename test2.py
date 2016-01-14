@@ -1,21 +1,29 @@
-y = 0
-distanceHaute = 0
-distanceBasse = 280
-flag = "down"
+# -*- coding:Utf-8 -*-
 
-while distanceHaute <= 280:
-	if y >= distanceBasse:
-		flag = "up"
-		distanceHaute += 50
+class Shape:
+  def __init__(self, xcor, ycor):
+    self.x = xcor
+    self.y = ycor
 
-	if y <= distanceHaute:
-		flag = "down"
+  def __str__(self):
+    return 'x: ' + str(self.x) + ' y: ' + str(self.y)
 
-	if flag == "down":
-		y += 10
+  def move(self, x1, y1):
+    self.x = self.x + x1
+    self.y = self.y + y1
 
-	if flag == "up":
-		y -= 10
+class Rectangle(Shape):
+  def __init__(self, xcor, ycor, width, height):
+    Shape.__init__(self, xcor, ycor)
+    self.width = width
+    self.height = height
 
-	print("flag", flag, "y", y, "haut:", distanceHaute,)
-	input()
+  def __str__(self):
+    retStr = Shape.__str__(self)
+    retStr += ' width: ' + str(self.width) + ' height: ' + str(self.height)
+    return retStr
+
+#rec = Rectangle(5, 10, 8, 9)
+#print(rec)
+#rec.move(10, 12)
+#print(rec)

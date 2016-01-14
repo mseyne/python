@@ -1,25 +1,23 @@
-# -*- coding:Utf-8 -*-
+class Person:
+  def __init__(self, first, middle, last, age):
+    self.first = first = first;
+    self.middle = middle;
+    self.last = last;
+    self.age = age;
+  
+  def __str__(self):
+    return self.first + ' ' + self.middle + ' ' + self.last + \
+           ' ' + str(self.age)
 
-import tkinter as tk
+  def initials(self):
+    return self.first[0] + self.middle[0] + self.last[0]
 
-fenetre = tk.Tk()
-
-text = tk.Label(fenetre, text="Hello", fg="Red")
-text.pack()
-bou = tk.Button(fenetre, text="Ok", command=fenetre.destroy)
-bou.pack()
-fenetre.mainloop()
+  def changeAge(self, amount):
+    self.age += amount
 
 
-# def question(annonce, essais = 4, please = 'Oui ou Non, svp'):
-# 	while essais > 0:
-# 		reponse = input(annonce).lower()
-# 		if reponse in ("o", "oui"):
-# 			return 1
-# 		if reponse in ("n", "non"):
-# 			return 0
-# 		print(please)
-# 		essais +- 1
-
-# question("Est-ce que tu veux des haricots ?")
-# question("Est-ce que tu veux aller sur Mars ?")
+aPerson = Person('Jane', 'Q', 'Public', 27)
+print(aPerson)
+aPerson.changeAge(2)
+print(aPerson)
+print(aPerson.initials())
